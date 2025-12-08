@@ -18,6 +18,47 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Initialisation du script Cal.com
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = `
+      (function (C, A, L) { 
+        let p = function (a, ar) { a.q.push(ar); }; 
+        let d = C.document; 
+        C.Cal = C.Cal || function () { 
+          let cal = C.Cal; 
+          let ar = arguments; 
+          if (!cal.loaded) { 
+            cal.ns = {}; 
+            cal.q = cal.q || []; 
+            d.head.appendChild(d.createElement("script")).src = A; 
+            cal.loaded = true; 
+          } 
+          if (ar[0] === L) { 
+            const api = function () { p(api, arguments); }; 
+            const namespace = ar[1]; 
+            api.q = api.q || []; 
+            if(typeof namespace === "string"){
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar); 
+            return;
+          } 
+          p(cal, ar); 
+        }; 
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "rdv", {origin:"https://app.cal.com"});
+      Cal.ns.rdv("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    `;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup si nécessaire
+    };
+  }, []);
+
   const navLinks = [
     { href: '/#services', label: 'Services' },
     { href: '/#portfolio', label: 'Portfolio' },
@@ -59,12 +100,14 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/#contact"
+            <button
+              data-cal-link="nuitblancheproduction/rdv"
+              data-cal-namespace="rdv"
+              data-cal-config='{"layout":"month_view"}'
               className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-2.5 rounded-full transition-all font-medium"
             >
-              Démarrer
-            </Link>
+              Planifier un appel
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -99,13 +142,15 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/#contact"
+              <button
+                data-cal-link="nuitblancheproduction/rdv"
+                data-cal-namespace="rdv"
+                data-cal-config='{"layout":"month_view"}'
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full transition-all font-medium text-center"
+                className="w-full bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full transition-all font-medium text-center"
               >
-                Démarrer un projet
-              </Link>
+                Planifier un appel
+              </button>
             </div>
           </motion.div>
         )}
