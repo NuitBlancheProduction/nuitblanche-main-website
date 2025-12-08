@@ -148,7 +148,7 @@ function ServicesSection() {
   ];
 
   return (
-    <section className="py-32 px-4 bg-zinc-950 relative overflow-hidden">
+    <section id="services" className="py-32 px-4 bg-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950" />
 
       <motion.div
@@ -264,7 +264,7 @@ function FoundersSection() {
   ];
 
   return (
-    <section className="py-32 px-4 bg-zinc-950">
+    <section id="fondateurs" className="py-32 px-4 bg-zinc-950">
       <motion.div
         className="max-w-7xl mx-auto"
         initial="initial"
@@ -323,7 +323,7 @@ function PortfolioSection() {
   ];
 
   return (
-    <section className="py-32 px-4 bg-zinc-900/30">
+    <section id="portfolio" className="py-32 px-4 bg-zinc-900/30">
       <motion.div
         className="max-w-7xl mx-auto"
         initial="initial"
@@ -371,7 +371,7 @@ function PortfolioSection() {
 
 function ContactSection() {
   return (
-    <section className="py-32 px-4 bg-zinc-950 relative overflow-hidden">
+    <section id="contact" className="py-32 px-4 bg-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/50 to-zinc-950" />
 
       <motion.div
