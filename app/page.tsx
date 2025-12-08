@@ -35,7 +35,6 @@ export default function Home() {
       <FoundersSection />
       <PortfolioSection />
       <ContactSection />
-      <Footer />
     </main>
   );
 }
@@ -418,31 +417,5 @@ function ContactSection() {
         </motion.div>
       </motion.div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="py-8 px-4 border-t border-zinc-900 bg-zinc-950">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="text-zinc-600 text-sm">
-          © 2025 Nuit Blanche Production. Tous droits réservés.
-        </div>
-        <div className="flex gap-6">
-          <a
-            href="#"
-            className="text-zinc-600 hover:text-violet-400 transition-colors text-sm"
-          >
-            Mentions Légales
-          </a>
-          <a
-            href="#"
-            className="text-zinc-600 hover:text-violet-400 transition-colors text-sm"
-          >
-            Politique de Confidentialité
-          </a>
-        </div>
-      </div>
-    </footer>
   );
 }
