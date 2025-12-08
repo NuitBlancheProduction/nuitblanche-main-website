@@ -2,6 +2,13 @@
 
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+
+// Déclaration TypeScript pour Cal.com
+declare global {
+  interface Window {
+    Cal?: any;
+  }
+}
 import {
   Video,
   Calendar,
