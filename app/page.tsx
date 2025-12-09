@@ -117,10 +117,8 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          Capturer l'Essence.
-          <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-600">
-            Amplifier l'Image.
+            La créativité ne dort jamais.
           </span>
         </motion.h1>
 
@@ -130,7 +128,7 @@ function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          Agence de production audiovisuelle stratégique.
+          De la conception à la post-prod, nous donnons vie à vos visions les plus ambitieuses.
         </motion.p>
 
         <motion.div
