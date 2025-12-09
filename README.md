@@ -32,3 +32,11 @@ Architecture moderne basée sur la performance (Server Side Rendering) et l'évo
   ├── /public        # Assets statiques (Images, Favicons, Robots.txt)
   ├── /lib           # Utilitaires (utils.ts)
   └── /hooks         # Custom React Hooks
+
+
+🌍 Déploiement
+Le déploiement est automatisé via Vercel.
+Toute modification poussée sur la branche main déclenche un build de production optimisé.
+Note sur la collaboration :
+Le projet étant hébergé sur un compte Vercel personnel (Hobby), le dépôt GitHub doit être Public pour permettre les déploiements automatiques, ou le déploiement doit être déclenché par le propriétaire du compte Vercel.
+
