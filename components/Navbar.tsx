@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-// Déclaration TypeScript pour Cal.com
 declare global {
   interface Window {
     Cal?: any;
@@ -26,7 +25,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Initialisation du script Cal.com
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.innerHTML = `
@@ -61,9 +59,7 @@ export default function Navbar() {
     `;
     document.head.appendChild(script);
 
-    return () => {
-      // Cleanup si nécessaire
-    };
+    return () => {};
   }, []);
 
   const navLinks = [
@@ -88,8 +84,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-violet-600 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-white font-bold text-xl">NB</span>
+            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center group-hover:bg-zinc-200 transition-all">
+              <span className="text-black font-bold text-xl">NB</span>
             </div>
             <span className="text-white font-semibold text-lg hidden sm:block">
               Nuit Blanche
@@ -102,7 +98,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-zinc-300 hover:text-violet-400 transition-colors font-medium"
+                className="text-zinc-300 hover:text-white transition-colors font-medium"
               >
                 {link.label}
               </Link>
@@ -111,7 +107,7 @@ export default function Navbar() {
               data-cal-link="nuitblancheproduction/rdv"
               data-cal-namespace="rdv"
               data-cal-config='{"layout":"month_view"}'
-              className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-2.5 rounded-full transition-all font-medium"
+              className="bg-white hover:bg-zinc-200 text-black px-6 py-2.5 rounded-full transition-all font-medium"
             >
               Planifier un appel
             </button>
@@ -144,7 +140,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-zinc-300 hover:text-violet-400 transition-colors font-medium py-2"
+                  className="block text-zinc-300 hover:text-white transition-colors font-medium py-2"
                 >
                   {link.label}
                 </Link>
@@ -154,7 +150,7 @@ export default function Navbar() {
                 data-cal-namespace="rdv"
                 data-cal-config='{"layout":"month_view"}'
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full transition-all font-medium text-center"
+                className="w-full bg-white hover:bg-zinc-200 text-black px-6 py-3 rounded-full transition-all font-medium text-center"
               >
                 Planifier un appel
               </button>
