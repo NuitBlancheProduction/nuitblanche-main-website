@@ -22,8 +22,8 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="mb-6"
         >
-          <div className="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
-            <span className="text-zinc-400 text-sm font-medium tracking-wider">
+          <div className="inline-block px-4 py-2 bg-zinc-800/50 border border-zinc-700 rounded-full mb-8">
+            <span className="text-zinc-300 text-sm font-medium tracking-wider">
               NUIT BLANCHE PRODUCTION
             </span>
           </div>
