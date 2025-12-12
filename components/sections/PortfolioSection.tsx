@@ -37,7 +37,7 @@ export function PortfolioSection() {
         variants={staggerContainer}
       >
         <motion.div variants={fadeInUp} className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">Portfolio</h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">Portfolio</h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Une sélection de nos créations les plus marquantes
           </p>
@@ -48,7 +48,7 @@ export function PortfolioSection() {
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-violet-600/50 transition-all duration-300"
+              className="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden cursor-pointer border border-zinc-800 hover:border-white/20 transition-all duration-300"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900" />
 
@@ -56,15 +56,15 @@ export function PortfolioSection() {
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="transform group-hover:scale-110 transition-transform duration-500">
-                  <Video className="w-16 h-16 text-zinc-700 group-hover:text-violet-600 transition-colors" />
+                  <Video className="w-16 h-16 text-zinc-700 group-hover:text-white transition-colors" />
                 </div>
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-xs text-violet-400 font-medium mb-1 uppercase tracking-wider">
+                <p className="text-xs text-zinc-400 font-medium mb-1 uppercase tracking-wider">
                   {project.category}
                 </p>
-                <h3 className="text-xl font-bold">{project.title}</h3>
+                <h3 className="text-xl font-bold text-white">{project.title}</h3>
               </div>
             </motion.div>
           ))}

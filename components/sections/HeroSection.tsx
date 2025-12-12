@@ -22,22 +22,20 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="mb-6"
         >
-          <div className="inline-block px-4 py-2 bg-violet-600/10 border border-violet-600/20 rounded-full mb-8">
-            <span className="text-violet-400 text-sm font-medium tracking-wider">
+          <div className="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
+            <span className="text-zinc-400 text-sm font-medium tracking-wider">
               NUIT BLANCHE PRODUCTION
             </span>
           </div>
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-600">
-            La créativité ne dort jamais.
-          </span>
+          La créativité ne dort jamais.
         </motion.h1>
 
         <motion.p
@@ -59,7 +57,7 @@ export function HeroSection() {
             data-cal-namespace="rdv"
             data-cal-config='{"layout":"month_view"}'
             size="lg"
-            className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-6 text-lg rounded-full group"
+            className="bg-white hover:bg-zinc-200 text-black px-8 py-6 text-lg rounded-full group"
           >
             Démarrer un projet
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -75,7 +73,7 @@ export function HeroSection() {
       >
         <div className="w-6 h-10 border-2 border-zinc-600 rounded-full flex justify-center">
           <motion.div
-            className="w-1.5 h-1.5 bg-violet-500 rounded-full mt-2"
+            className="w-1.5 h-1.5 bg-white rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           />

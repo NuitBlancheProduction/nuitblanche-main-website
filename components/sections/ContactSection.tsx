@@ -31,12 +31,10 @@ export function ContactSection() {
         variants={staggerContainer}
       >
         <motion.div variants={fadeInUp}>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             Prêt à passer au
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-violet-600">
-              niveau supérieur ?
-            </span>
+            niveau supérieur ?
           </h2>
           <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto">
             Discutons de votre projet et créons ensemble quelque chose
@@ -50,7 +48,7 @@ export function ContactSection() {
         >
           <Button
             size="lg"
-            className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-6 text-lg rounded-full group"
+            className="bg-white hover:bg-zinc-200 text-black px-8 py-6 text-lg rounded-full group"
           >
             <Mail className="mr-2" />
             contact@nuitblanche.production
@@ -58,7 +56,7 @@ export function ContactSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-zinc-700 hover:border-violet-600 text-white px-8 py-6 text-lg rounded-full bg-transparent"
+            className="border-zinc-700 hover:border-white text-white px-8 py-6 text-lg rounded-full bg-transparent"
           >
             <Phone className="mr-2" />
             +33 X XX XX XX XX
