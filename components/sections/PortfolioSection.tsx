@@ -64,9 +64,9 @@ export function PortfolioSection() {
       youtubeUrl: 'https://youtu.be/C1gptn3m_Ms',
     },
     {
-      title: 'Chazal',
-      category: 'CV à l envers',
-      youtubeUrl: 'https://youtu.be/9nVo8WpK5mg',
+      title: 'Les Jeux de la Diversité 2024',
+      category: 'Évènementiel',
+      youtubeUrl: 'https://youtu.be/VEjvIBjroRQ',
     },
     {
       title: 'Sicovad',
