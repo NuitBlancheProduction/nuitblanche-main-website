@@ -23,11 +23,27 @@ export function ProofSection() {
   return (
     <section className="py-12 bg-zinc-200 overflow-hidden border-y border-zinc-300">
       <div className="mb-8 text-center">
-        <h2 className="text-zinc-900 uppercase tracking-[0.25em] text-2xl md:text-3xl font-black relative inline-block">
-          <span className="relative z-10">Ils nous font confiance</span>
-          <span className="absolute inset-0 blur-sm bg-gradient-to-r from-transparent via-zinc-400/30 to-transparent -z-10"></span>
+        <h2 className="text-zinc-900 uppercase tracking-[0.25em] text-2xl md:text-3xl font-black relative inline-block overflow-hidden">
+          <span className="relative z-10 bg-gradient-to-r from-zinc-700 via-zinc-900 to-zinc-700 bg-clip-text text-transparent animate-shine bg-[length:200%_100%]">
+            Ils nous font confiance
+          </span>
         </h2>
       </div>
+
+      <style jsx>{`
+        @keyframes shine {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+
+        .animate-shine {
+          animation: shine 4s linear infinite;
+        }
+      `}</style>
 
       {loading ? (
         <div className="text-center text-zinc-400 py-8">

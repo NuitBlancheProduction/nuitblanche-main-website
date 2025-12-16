@@ -47,7 +47,7 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
               alt={`Logo client ${file.split('.')[0]}`}
               width={160}
               height={80}
-              className="h-20 w-auto object-contain grayscale brightness-0 opacity-70 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 transition-all duration-300 ease-out"
+              className="h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 ease-out"
               style={{ maxWidth: '240px' }}
             />
           </div>
