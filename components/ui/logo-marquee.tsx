@@ -24,10 +24,10 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
 
   if (displayFiles.length === 0) {
     return (
-      <div className="text-center text-zinc-600 py-8">
+      <div className="text-center text-zinc-400 py-8">
         <p className="text-sm">Aucun logo client trouvé</p>
-        <p className="text-xs mt-2 text-zinc-700">
-          Ajoutez des images dans <code className="bg-zinc-800 px-2 py-1 rounded">public/clients/</code>
+        <p className="text-xs mt-2 text-zinc-500">
+          Ajoutez des images dans <code className="bg-zinc-100 px-2 py-1 rounded">public/clients/</code>
         </p>
       </div>
     );
@@ -36,11 +36,11 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
   return (
     <div className="relative overflow-hidden">
       {/* Gradient fade sur les bords */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-900/50 to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-900/50 to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
       {/* Conteneur du défilement avec padding vertical pour le zoom */}
-      <div className="flex gap-16 animate-marquee py-8">
+      <div className="flex gap-24 animate-marquee py-8">
         {allLogos.map((file, index) => (
           <div
             key={`${file}-${index}`}
@@ -49,10 +49,10 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
             <Image
               src={`/clients/${file}`}
               alt={`Logo client ${file.split('.')[0]}`}
-              width={120}
-              height={48}
-              className="h-12 w-auto object-contain grayscale opacity-60 brightness-150 hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:scale-125 transition-all duration-300 ease-out"
-              style={{ maxWidth: '180px' }}
+              width={160}
+              height={80}
+              className="h-20 w-auto object-contain grayscale brightness-0 opacity-70 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 transition-all duration-300 ease-out"
+              style={{ maxWidth: '240px' }}
             />
           </div>
         ))}
