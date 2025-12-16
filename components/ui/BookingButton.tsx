@@ -4,17 +4,31 @@ import Image from 'next/image';
 import { Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+declare global {
+  interface Window {
+    Cal?: any;
+  }
+}
+
 interface BookingButtonProps {
   variant?: 'default' | 'compact';
   className?: string;
 }
 
 export function BookingButton({ variant = 'default', className }: BookingButtonProps) {
+  const handleClick = () => {
+    if (typeof window !== 'undefined' && window.Cal?.ns?.rdv) {
+      window.Cal.ns.rdv('ui', {
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      });
+    }
+  };
+
   if (variant === 'compact') {
     return (
       <button
-        data-cal-link="denis-nuitblanche/30min"
-        data-cal-config='{"layout":"month_view"}'
+        onClick={handleClick}
         className={cn(
           'group relative flex items-center gap-3 px-5 py-2.5 bg-zinc-900 hover:bg-white border border-zinc-700 hover:border-zinc-900 rounded-full transition-all duration-300 overflow-hidden',
           className
@@ -50,8 +64,7 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
 
   return (
     <button
-      data-cal-link="denis-nuitblanche/30min"
-      data-cal-config='{"layout":"month_view"}'
+      onClick={handleClick}
       className={cn(
         'group relative flex items-center gap-4 px-8 py-4 bg-zinc-900 hover:bg-white border-2 border-zinc-700 hover:border-zinc-900 rounded-2xl transition-all duration-500 overflow-hidden shadow-xl hover:shadow-2xl',
         className
