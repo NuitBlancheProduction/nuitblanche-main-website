@@ -30,28 +30,11 @@ export function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        {/* Logo Texte */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-8"
-        >
-          <Image
-            src="/logos/nuit-blanche-production-texte.webp"
-            alt="Nuit Blanche Production"
-            width={576}
-            height={200}
-            className="w-96 md:w-[36rem] h-auto mx-auto"
-            priority
-          />
-        </motion.div>
-
         <motion.h1
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           La créativité ne dort jamais.
         </motion.h1>
@@ -60,7 +43,7 @@ export function HeroSection() {
           className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           De la conception à la post-prod, nous donnons vie à vos visions les plus ambitieuses.
         </motion.p>
@@ -68,10 +51,26 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
           className="flex justify-center"
         >
           <BookingButton variant="default" />
+        </motion.div>
+
+        {/* Logo Texte */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mt-12"
+        >
+          <Image
+            src="/logos/nuit-blanche-production-texte.webp"
+            alt="Nuit Blanche Production"
+            width={192}
+            height={66}
+            className="w-32 md:w-48 h-auto mx-auto opacity-80"
+          />
         </motion.div>
       </motion.div>
 
