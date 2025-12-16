@@ -7,68 +7,82 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Détecte si on est sur mobile
-    const checkMobile = () => {
-      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || isMobile) return;
+    if (!video) return;
 
+    // Force la lecture de la vidéo sur mobile
     const playVideo = async () => {
       try {
+        // Définir les attributs nécessaires pour mobile
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
         video.muted = true;
+        video.autoplay = true;
+        
         await video.play();
+        setIsVideoLoaded(true);
       } catch (error) {
-        console.log('Autoplay error:', error);
+        console.log('Autoplay bloqué:', error);
+        // Fallback: essayer de jouer au premier touch
+        const playOnInteraction = async () => {
+          try {
+            await video.play();
+            setIsVideoLoaded(true);
+          } catch (e) {
+            console.error('Impossible de lire la vidéo:', e);
+          }
+        };
+        
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        document.addEventListener('click', playOnInteraction, { once: true });
       }
     };
 
-    // Attendre que la vidéo soit prête
-    if (video.readyState >= 3) {
-      playVideo();
-    } else {
-      video.addEventListener('loadeddata', playVideo, { once: true });
-    }
-  }, [isMobile]);
+    playVideo();
+  }, []);
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Vidéo uniquement sur desktop */}
-      {!isMobile && (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/hero-background.mp4" type="video/mp4" />
-        </video>
-      )}
+      {/* Vidéo en arrière-plan */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        webkit-playsinline="true"
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ 
+          pointerEvents: 'none',
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)'
+        }}
+        onLoadedData={() => setIsVideoLoaded(true)}
+      >
+        <source src="/hero-background.mp4" type="video/mp4" />
+        {/* Fallback: image si la vidéo ne charge pas */}
+        <Image
+          src="/hero-fallback.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </video>
 
-      {/* Image fixe sur mobile (fallback) */}
-      {isMobile && (
-        <div className="absolute inset-0">
+      {/* Image de fallback pour mobile si la vidéo ne se charge pas */}
+      {!isVideoLoaded && (
+        <div className="absolute inset-0 md:hidden">
           <Image
-            src="/hero-mobile-bg.jpg"
+            src="/hero-fallback.jpg"
             alt="Background"
             fill
             className="object-cover"
             priority
-            quality={90}
           />
         </div>
       )}

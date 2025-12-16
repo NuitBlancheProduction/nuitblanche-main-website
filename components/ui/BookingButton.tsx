@@ -25,20 +25,12 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
         data-cal-link="nuitblancheproduction/rdv"
         data-cal-config='{"layout":"month_view"}'
         className={cn(
-          'group relative flex items-center justify-center gap-3 px-6 py-3 rounded-full transition-all duration-300',
+          'group relative flex items-center justify-center gap-3 px-6 py-3 bg-black border-2 border-red-500/60 hover:border-red-400 rounded-full transition-all duration-300 shadow-lg shadow-red-500/20 hover:shadow-red-500/40',
           className
         )}
       >
-        {/* Border Beam - Rotating Red Glow - NOW ROTATES! */}
-        <div className="absolute inset-0 rounded-full animate-spin-slow">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-500 via-transparent to-transparent opacity-70" />
-        </div>
-        
-        {/* Static background */}
-        <div className="absolute inset-[2px] rounded-full bg-black" />
-
         {/* Inner Red Glow */}
-        <div className="absolute inset-0 rounded-full bg-red-600/20 blur-xl group-hover:bg-red-500/30 transition-all duration-300" />
+        <div className="absolute inset-0 rounded-full bg-red-600/10 blur-xl group-hover:bg-red-500/20 transition-all duration-300" />
 
         {/* Content */}
         <div className="relative flex items-center gap-3 z-10">
@@ -69,20 +61,12 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
       data-cal-link="nuitblancheproduction/rdv"
       data-cal-config='{"layout":"month_view"}'
       className={cn(
-        'group relative flex items-center justify-center gap-5 px-10 py-5 rounded-3xl transition-all duration-500 shadow-2xl hover:shadow-red-500/50',
+        'group relative flex items-center justify-center gap-5 px-10 py-5 bg-black border-2 border-red-500/60 hover:border-red-400 rounded-3xl transition-all duration-500 shadow-xl shadow-red-500/20 hover:shadow-2xl hover:shadow-red-500/40',
         className
       )}
     >
-      {/* Border Beam - Rotating Red Glow - NOW ROTATES! */}
-      <div className="absolute inset-0 rounded-3xl animate-spin-slow">
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-red-500 via-transparent to-transparent opacity-80" />
-      </div>
-      
-      {/* Static background */}
-      <div className="absolute inset-[3px] rounded-3xl bg-black" />
-
       {/* Inner Red Glow Effect */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-red-600/20 via-red-500/30 to-red-600/20 blur-2xl group-hover:from-red-500/30 group-hover:via-red-400/40 group-hover:to-red-500/30 transition-all duration-500" />
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-red-600/10 via-red-500/20 to-red-600/10 blur-2xl group-hover:from-red-500/20 group-hover:via-red-400/30 group-hover:to-red-500/20 transition-all duration-500" />
 
       {/* Content */}
       <div className="relative flex items-center gap-5 z-10">
@@ -120,7 +104,6 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'spin-slow': 'spin 3s linear infinite',
         'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
     },
