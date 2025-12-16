@@ -39,8 +39,8 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-900/50 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-900/50 to-transparent z-10 pointer-events-none" />
 
-      {/* Conteneur du défilement */}
-      <div className="flex gap-16 animate-marquee">
+      {/* Conteneur du défilement avec padding vertical pour le zoom */}
+      <div className="flex gap-16 animate-marquee py-8">
         {allLogos.map((file, index) => (
           <div
             key={`${file}-${index}`}
