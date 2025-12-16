@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
@@ -15,17 +16,21 @@ export function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
+        {/* Logo Principal - Remplace le badge texte */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="mb-8"
         >
-          <div className="inline-block px-4 py-2 bg-zinc-800/50 border border-zinc-700 rounded-full mb-8">
-            <span className="text-zinc-300 text-sm font-medium tracking-wider">
-              NUIT BLANCHE PRODUCTION
-            </span>
-          </div>
+          <Image
+            src="/logos/logo-nuit-blanche-production.webp"
+            alt="Nuit Blanche Production"
+            width={512}
+            height={170}
+            className="h-28 w-auto mx-auto"
+            priority
+          />
         </motion.div>
 
         <motion.h1
