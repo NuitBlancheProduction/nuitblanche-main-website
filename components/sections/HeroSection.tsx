@@ -40,9 +40,9 @@ export function HeroSection() {
           <Image
             src="/logos/nuit-blanche-production-texte.webp"
             alt="Nuit Blanche Production"
-            width={288}
-            height={100}
-            className="w-48 md:w-72 h-auto mx-auto"
+            width={576}
+            height={200}
+            className="w-96 md:w-[36rem] h-auto mx-auto"
             priority
           />
         </motion.div>
