@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Vidéo en arrière-plan */}
+      {/* VidÃ©o en arriÃ¨re-plan */}
       <video
         autoPlay
         loop
@@ -17,10 +18,10 @@ export function HeroSection() {
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay sombre pour la lisibilité */}
+      {/* Overlay sombre pour la lisibilitÃ© */}
       <div className="absolute inset-0 bg-black/60" />
       
-      {/* Dégradé en bas pour transition douce */}
+      {/* DÃ©gradÃ© en bas pour transition douce */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
       <motion.div
@@ -29,13 +30,30 @@ export function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
+        {/* Logo Principal - Petit sur mobile, Immense sur desktop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mb-12 md:mb-16"
+        >
+          <Image
+            src="/logos/logo-nuit-blanche-production.webp"
+            alt="Nuit Blanche Production"
+            width={768}
+            height={256}
+            className="h-20 md:h-60 w-auto mx-auto"
+            priority
+          />
+        </motion.div>
+
         <motion.h1
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          La créativité ne dort jamais.
+          La crÃ©ativitÃ© ne dort jamais.
         </motion.h1>
 
         <motion.p
@@ -44,7 +62,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          De la conception à la post-prod, nous donnons vie à vos visions les plus ambitieuses.
+          De la conception Ã  la post-prod, nous donnons vie Ã  vos visions les plus ambitieuses.
         </motion.p>
 
         <motion.div
