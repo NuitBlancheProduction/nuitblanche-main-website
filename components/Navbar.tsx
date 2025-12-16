@@ -28,96 +28,97 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo avec Morphing */}
-          <Link href="/" className="relative group">
-            <div className="relative transition-all duration-300">
-              {!isScrolled ? (
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800'
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo Icône uniquement */}
+            <Link href="/" className="relative group">
+              <div className="relative transition-all duration-300">
                 <Image
-                  src="/logos/logo-nuit-blanche-production.webp"
-                  alt="Nuit Blanche Production - Agence Vidéo"
-                  width={180}
+                  src="/logos/logo-nuit-blanche-production-icone.webp"
+                  alt="Nuit Blanche Production"
+                  width={48}
                   height={48}
                   className="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
                   priority
                 />
-              ) : (
-                <Image
-                  src="/logos/logo-nuit-blanche-production-icone.webp"
-                  alt="Nuit Blanche"
-                  width={40}
-                  height={40}
-                  className="h-10 w-auto object-contain group-hover:opacity-80 transition-opacity"
-                  priority
-                />
-              )}
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-zinc-300 hover:text-white transition-colors font-medium"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <BookingButton variant="compact" />
             </div>
-          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-zinc-300 hover:text-white transition-colors font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <BookingButton variant="compact" />
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+              aria-label="Menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
-            aria-label="Menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-      </div>
+      </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Plein écran */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-zinc-950/98 backdrop-blur-md border-t border-zinc-800"
+            className="fixed inset-0 h-screen w-screen z-50 bg-zinc-950/98 backdrop-blur-xl flex flex-col justify-center items-center"
           >
-            <div className="px-4 py-6 space-y-4">
+            {/* Bouton Fermer en haut à droite */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+              aria-label="Fermer le menu"
+            >
+              <X size={28} />
+            </button>
+
+            {/* Navigation centrée */}
+            <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-zinc-300 hover:text-white transition-colors font-medium py-2"
+                  className="text-zinc-300 hover:text-white transition-colors font-medium text-2xl"
                 >
                   {link.label}
                 </Link>
               ))}
-              <div onClick={() => setIsMobileMenuOpen(false)} className="pt-2">
-                <BookingButton variant="default" className="w-full justify-center" />
+              <div onClick={() => setIsMobileMenuOpen(false)} className="pt-4">
+                <BookingButton variant="default" className="px-8 py-3 text-lg" />
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   );
 }
