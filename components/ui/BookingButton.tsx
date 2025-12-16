@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { Calendar } from 'lucide-react';
+import { getCalApi } from '@calcom/embed-react';
 import { cn } from '@/lib/utils';
 
 interface BookingButtonProps {
@@ -10,11 +12,18 @@ interface BookingButtonProps {
 }
 
 export function BookingButton({ variant = 'default', className }: BookingButtonProps) {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: 'rdv' });
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+    })();
+  }, []);
+
   if (variant === 'compact') {
     return (
       <button
         data-cal-namespace="rdv"
-        data-cal-link="denis-nuitblanche/rdv"
+        data-cal-link="nuitblancheproduction/rdv"
         data-cal-config='{"layout":"month_view"}'
         className={cn(
           'group relative flex items-center gap-3 px-5 py-2.5 bg-zinc-900 hover:bg-white border border-zinc-700 hover:border-zinc-900 rounded-full transition-all duration-300 overflow-hidden',
@@ -52,7 +61,7 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
   return (
     <button
       data-cal-namespace="rdv"
-      data-cal-link="denis-nuitblanche/rdv"
+      data-cal-link="nuitblancheproduction/rdv"
       data-cal-config='{"layout":"month_view"}'
       className={cn(
         'group relative flex items-center gap-4 px-8 py-4 bg-zinc-900 hover:bg-white border-2 border-zinc-700 hover:border-zinc-900 rounded-2xl transition-all duration-500 overflow-hidden shadow-xl hover:shadow-2xl',
