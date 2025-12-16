@@ -20,9 +20,11 @@ const staggerContainer = {
   },
 };
 
-// Extract YouTube ID from URL
+// Extract YouTube ID from URL - Improved regex for all formats
 function getYoutubeId(url: string): string {
-  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+  const match = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([^&?\/]+)/
+  );
   return match ? match[1] : '';
 }
 
@@ -100,7 +102,7 @@ export function PortfolioSection() {
               <DialogTrigger asChild>
                 <motion.div
                   variants={fadeInUp}
-                  className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white/20 transition-all duration-300 cursor-pointer"
+                  className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-white/20 hover:scale-110 hover:z-50 transition-all duration-300 cursor-pointer"
                 >
                   {/* Thumbnail with B&W to Color effect */}
                   <div className="aspect-video w-full relative overflow-hidden">
@@ -111,10 +113,10 @@ export function PortfolioSection() {
                       className="grayscale group-hover:grayscale-0 transition-all duration-500 object-cover"
                     />
                     
-                    {/* Play Button Overlay */}
+                    {/* Play Button Overlay - Reduced size */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-300">
-                      <div className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-2xl">
-                        <Play className="w-8 h-8 text-black ml-1" fill="black" />
+                      <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-2xl">
+                        <Play className="w-5 h-5 text-black ml-0.5" fill="black" />
                       </div>
                     </div>
                   </div>
@@ -129,32 +131,30 @@ export function PortfolioSection() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-7xl w-[95vw] h-[90vh] bg-black border-zinc-800 p-0 overflow-hidden">
-                {/* Custom Close Button */}
+              <DialogContent className="max-w-7xl w-full p-0 bg-black border-none overflow-hidden">
+                {/* Custom Close Button - Explicit and visible */}
                 <button
                   onClick={() => setOpenDialog(null)}
-                  className="absolute right-4 top-4 z-50 rounded-full bg-white/10 backdrop-blur-sm p-3 hover:bg-white/20 transition-all duration-200 group"
+                  className="absolute right-4 top-4 z-50 rounded-full bg-white/10 backdrop-blur-sm p-3 hover:bg-white/20 transition-all duration-200"
                 >
                   <X className="h-6 w-6 text-white" />
                 </button>
 
-                {/* Video Container */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="aspect-video w-full h-full">
-                    {openDialog === index && (
-                      <iframe
-                        src={getYoutubeEmbedUrl(project.youtubeUrl)}
-                        title={project.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      />
-                    )}
-                  </div>
+                {/* Video Container - 16/9 aspect ratio forced */}
+                <div className="aspect-video relative w-full">
+                  {openDialog === index && (
+                    <iframe
+                      src={getYoutubeEmbedUrl(project.youtubeUrl)}
+                      title={project.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full absolute inset-0"
+                    />
+                  )}
                 </div>
 
                 {/* Video Info Bar */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none">
                   <p className="text-xs text-zinc-400 font-medium mb-1 uppercase tracking-wider">
                     {project.category}
                   </p>
