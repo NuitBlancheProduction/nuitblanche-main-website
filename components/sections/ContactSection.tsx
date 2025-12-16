@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { Mail, Phone } from 'lucide-react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -14,6 +15,15 @@ const staggerContainer = {
     transition: {
       staggerChildren: 0.1,
     },
+  },
+};
+
+const cardHover = {
+  rest: { scale: 1, borderColor: 'rgb(39, 39, 42)' },
+  hover: { 
+    scale: 1.02, 
+    borderColor: 'rgb(63, 63, 70)',
+    transition: { duration: 0.3 }
   },
 };
 
@@ -46,26 +56,49 @@ export function ContactSection() {
           className="flex flex-col items-center"
         >
           {/* Booking Button */}
-          <BookingButton variant="default" />
+          <div className="mb-8">
+            <BookingButton variant="default" />
+          </div>
 
-          {/* Contact Information */}
-          <div className="mt-8 space-y-2">
-            <p className="text-zinc-400 text-lg">
-              <a
-                href="mailto:contact@nuitblancheproduction.com"
-                className="hover:text-white transition-colors"
-              >
-                contact@nuitblancheproduction.com
-              </a>
-            </p>
-            <p className="text-zinc-400 text-lg">
-              <a
-                href="tel:+33651301383"
-                className="hover:text-white transition-colors"
-              >
-                +33 6 51 30 13 83
-              </a>
-            </p>
+          {/* Contact Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl">
+            {/* Email Card */}
+            <motion.a
+              href="mailto:contact@nuitblancheproduction.com"
+              initial="rest"
+              whileHover="hover"
+              variants={cardHover}
+              className="group flex items-center gap-4 p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:bg-zinc-800 transition-all duration-300"
+            >
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-zinc-800/80 flex items-center justify-center group-hover:bg-zinc-700 transition-colors duration-300">
+                <Mail className="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div className="flex-1 text-left">
+                <p className="text-sm text-zinc-500 mb-1">Email</p>
+                <p className="text-lg text-zinc-400 group-hover:text-white transition-colors duration-300 break-all">
+                  contact@nuitblancheproduction.com
+                </p>
+              </div>
+            </motion.a>
+
+            {/* Phone Card */}
+            <motion.a
+              href="tel:+33651301383"
+              initial="rest"
+              whileHover="hover"
+              variants={cardHover}
+              className="group flex items-center gap-4 p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:bg-zinc-800 transition-all duration-300"
+            >
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-zinc-800/80 flex items-center justify-center group-hover:bg-zinc-700 transition-colors duration-300">
+                <Phone className="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div className="flex-1 text-left">
+                <p className="text-sm text-zinc-500 mb-1">Téléphone</p>
+                <p className="text-lg text-zinc-400 group-hover:text-white transition-colors duration-300">
+                  +33 6 51 30 13 83
+                </p>
+              </div>
+            </motion.a>
           </div>
         </motion.div>
       </motion.div>
