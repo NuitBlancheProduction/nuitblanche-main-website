@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -23,12 +24,14 @@ export function FoundersSection() {
       role: 'Stratégie & Développement',
       description:
         'Expert en stratégie de contenu et développement commercial, Denis transforme chaque projet en opportunité de croissance.',
+      image: '/team/denis.webp',
     },
     {
       name: 'Maxime',
       role: 'Direction Artistique & Technique',
       description:
         'Visionnaire créatif et passionné de technique, Maxime donne vie aux concepts les plus audacieux avec une précision cinématographique.',
+      image: '/team/maxime.webp',
     },
   ];
 
@@ -56,12 +59,15 @@ export function FoundersSection() {
               className="group relative bg-zinc-900/50 border border-zinc-800 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-300"
             >
               <div className="aspect-[4/5] bg-gradient-to-br from-zinc-800 to-zinc-900 relative overflow-hidden">
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-8xl font-bold text-zinc-800 group-hover:text-white transition-colors">
-                    {founder.name[0]}
-                  </div>
-                </div>
               </div>
 
               <div className="p-8">

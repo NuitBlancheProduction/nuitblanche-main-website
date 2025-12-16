@@ -1,98 +1,96 @@
-import { motion } from 'framer-motion';
+'use client';
+
 import Image from 'next/image';
+import { Calendar } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface BookingButtonProps {
   variant?: 'default' | 'compact';
   className?: string;
 }
 
-export function BookingButton({ variant = 'default', className = '' }: BookingButtonProps) {
-  const isCompact = variant === 'compact';
+export function BookingButton({ variant = 'default', className }: BookingButtonProps) {
+  if (variant === 'compact') {
+    return (
+      <button
+        data-cal-link="denis-nuitblanche/30min"
+        data-cal-config='{"layout":"month_view"}'
+        className={cn(
+          'group relative flex items-center gap-3 px-5 py-2.5 bg-zinc-900 hover:bg-white border border-zinc-700 hover:border-zinc-900 rounded-full transition-all duration-300 overflow-hidden',
+          className
+        )}
+      >
+        {/* Glow effect on hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-100 to-white blur-xl" />
+        </div>
+
+        {/* Content */}
+        <div className="relative flex items-center gap-3">
+          {/* Avatar with green pulse dot */}
+          <div className="relative w-8 h-8 rounded-full overflow-hidden ring-2 ring-zinc-700 group-hover:ring-zinc-900 transition-all duration-300">
+            <Image
+              src="/team/denis_cta.webp"
+              alt="Denis"
+              fill
+              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+            />
+            {/* Green pulse dot */}
+            <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-zinc-900 group-hover:border-white transition-colors duration-300">
+              <span className="absolute inset-0 rounded-full bg-green-500 animate-ping-slow group-hover:animate-ping-fast opacity-75" />
+            </div>
+          </div>
+
+          {/* Icon */}
+          <Calendar className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 transition-colors duration-300" />
+        </div>
+      </button>
+    );
+  }
 
   return (
-    <motion.button
-      data-cal-link="nuitblancheproduction/rdv"
-      data-cal-namespace="rdv"
+    <button
+      data-cal-link="denis-nuitblanche/30min"
       data-cal-config='{"layout":"month_view"}'
-      className={`
-        group relative
-        inline-flex items-center gap-3
-        ${isCompact ? 'px-4 py-2' : 'px-6 py-3'}
-        bg-zinc-900 hover:bg-white
-        border-2 border-zinc-700 hover:border-zinc-200
-        rounded-full
-        transition-all duration-500 ease-out
-        hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]
-        overflow-hidden
-        ${className}
-      `}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      className={cn(
+        'group relative flex items-center gap-4 px-8 py-4 bg-zinc-900 hover:bg-white border-2 border-zinc-700 hover:border-zinc-900 rounded-2xl transition-all duration-500 overflow-hidden shadow-xl hover:shadow-2xl',
+        className
+      )}
     >
-      {/* Avatar avec effet grayscale */}
-      <div className="relative flex-shrink-0">
-        <div className={`
-          ${isCompact ? 'w-7 h-7' : 'w-10 h-10'}
-          rounded-full overflow-hidden
-          ring-2 ring-zinc-700 group-hover:ring-zinc-300
-          transition-all duration-500
-        `}>
-          <Image
-            src="/team/denis.jpg"
-            alt="Denis"
-            width={40}
-            height={40}
-            className="
-              w-full h-full object-cover
-              grayscale group-hover:grayscale-0
-              transition-all duration-500
-            "
-            onError={(e) => {
-              // Fallback to a placeholder if image doesn't exist
-              const target = e.target as HTMLImageElement;
-              target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="40" height="40"%3E%3Crect fill="%23555" width="40" height="40"/%3E%3Ctext x="50%25" y="50%25" fill="%23fff" font-size="18" text-anchor="middle" dy=".3em"%3ED%3C/text%3E%3C/svg%3E';
-            }}
-          />
-        </div>
-        
-        {/* Point vert avec pulse */}
-        <div className="absolute -bottom-0.5 -right-0.5">
-          <div className="relative">
-            <div className={`
-              ${isCompact ? 'w-3 h-3' : 'w-3.5 h-3.5'}
-              bg-green-500 rounded-full
-              border-2 border-zinc-900 group-hover:border-white
-              transition-colors duration-500
-            `} />
-            <div className={`
-              absolute inset-0
-              bg-green-500 rounded-full
-              animate-ping-slow
-              group-hover:animate-ping-fast
-            `} />
-          </div>
-        </div>
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-100 via-white to-zinc-100 blur-2xl" />
       </div>
 
-      {/* Texte */}
-      <span className={`
-        ${isCompact ? 'text-sm' : 'text-base'}
-        font-semibold
-        text-white group-hover:text-black
-        transition-colors duration-500
-        whitespace-nowrap
-      `}>
-        {isCompact ? "Planifier un appel" : "Planifiez un appel avec Denis"}
-      </span>
+      {/* Content */}
+      <div className="relative flex items-center gap-4">
+        {/* Avatar with green pulse dot */}
+        <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-zinc-700 group-hover:ring-zinc-900 transition-all duration-500">
+          <Image
+            src="/team/denis_cta.webp"
+            alt="Denis"
+            fill
+            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+          {/* Green pulse dot */}
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-zinc-900 group-hover:border-white transition-colors duration-500">
+            <span className="absolute inset-0 rounded-full bg-green-500 animate-ping-slow group-hover:animate-ping-fast opacity-75" />
+          </div>
+        </div>
 
-      {/* Effet de brillance au survol */}
-      <div className="
-        absolute inset-0 -translate-x-full
-        group-hover:translate-x-full
-        bg-gradient-to-r from-transparent via-white/20 to-transparent
-        transition-transform duration-1000 ease-out
-        pointer-events-none
-      " />
-    </motion.button>
+        {/* Text */}
+        <div className="flex flex-col items-start">
+          <span className="text-white group-hover:text-zinc-900 font-semibold transition-colors duration-500">
+            Planifiez un appel avec Denis
+          </span>
+          <span className="text-xs text-zinc-500 group-hover:text-zinc-600 transition-colors duration-500">
+            30 minutes • Gratuit
+          </span>
+        </div>
+
+        {/* Icon */}
+        <Calendar className="w-5 h-5 text-zinc-500 group-hover:text-zinc-900 transition-colors duration-500 ml-2" />
+      </div>
+    </button>
   );
 }
