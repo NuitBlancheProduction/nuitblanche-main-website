@@ -16,19 +16,19 @@ export function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        {/* Logo Principal - Remplace le badge texte */}
+        {/* Logo Principal - Petit sur mobile, Immense sur desktop */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="mb-12 md:mb-16"
         >
           <Image
             src="/logos/logo-nuit-blanche-production.webp"
             alt="Nuit Blanche Production"
-            width={512}
-            height={170}
-            className="h-28 w-auto mx-auto"
+            width={768}
+            height={256}
+            className="h-20 md:h-60 w-auto mx-auto"
             priority
           />
         </motion.div>
