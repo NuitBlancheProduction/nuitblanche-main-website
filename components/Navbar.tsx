@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
@@ -40,13 +41,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center group-hover:bg-zinc-200 transition-all">
-              <span className="text-black font-bold text-xl">NB</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="relative h-10 w-auto">
+              <Image
+                src="/logos/icon.webp"
+                alt="Nuit Blanche Icon"
+                width={40}
+                height={40}
+                className="object-contain group-hover:opacity-80 transition-opacity"
+              />
             </div>
-            <span className="text-white font-semibold text-lg hidden sm:block">
-              Nuit Blanche
-            </span>
+            <div className="relative h-8 w-auto hidden sm:block">
+              <Image
+                src="/logos/text.webp"
+                alt="Nuit Blanche"
+                width={120}
+                height={32}
+                className="object-contain group-hover:opacity-80 transition-opacity"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

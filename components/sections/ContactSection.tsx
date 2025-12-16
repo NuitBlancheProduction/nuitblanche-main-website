@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { BookingButton } from '@/components/ui/BookingButton';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -44,23 +43,30 @@ export function ContactSection() {
 
         <motion.div
           variants={fadeInUp}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col items-center"
         >
-          <Button
-            size="lg"
-            className="bg-white hover:bg-zinc-200 text-black px-8 py-6 text-lg rounded-full group"
-          >
-            <Mail className="mr-2" />
-            contact@nuitblanche.production
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-zinc-700 hover:border-white text-white px-8 py-6 text-lg rounded-full bg-transparent"
-          >
-            <Phone className="mr-2" />
-            +33 X XX XX XX XX
-          </Button>
+          {/* Booking Button */}
+          <BookingButton variant="default" />
+
+          {/* Contact Information */}
+          <div className="mt-8 space-y-2">
+            <p className="text-zinc-400 text-lg">
+              <a
+                href="mailto:contact@nuitblancheproduction.com"
+                className="hover:text-white transition-colors"
+              >
+                contact@nuitblancheproduction.com
+              </a>
+            </p>
+            <p className="text-zinc-400 text-lg">
+              <a
+                href="tel:+33651301383"
+                className="hover:text-white transition-colors"
+              >
+                +33 6 51 30 13 83
+              </a>
+            </p>
+          </div>
         </motion.div>
       </motion.div>
     </section>

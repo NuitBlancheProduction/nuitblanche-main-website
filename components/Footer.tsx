@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
+import { Facebook, Linkedin, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,13 +12,25 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-xl">NB</span>
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <div className="relative h-10 w-auto">
+                <Image
+                  src="/logos/icon.webp"
+                  alt="Nuit Blanche Icon"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
-              <span className="text-white font-semibold text-lg">
-                Nuit Blanche Production
-              </span>
+              <div className="relative h-8 w-auto">
+                <Image
+                  src="/logos/text.webp"
+                  alt="Nuit Blanche Production"
+                  width={120}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
             </Link>
             <p className="text-zinc-400 max-w-md">
               Agence de production audiovisuelle premium. Capturer l'essence.
@@ -25,16 +38,16 @@ export default function Footer() {
             </p>
             <div className="flex items-center space-x-4 mt-6">
               <a
-                href="https://instagram.com"
+                href="https://www.facebook.com/NuitBlancheProduction"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
-                aria-label="Instagram"
+                aria-label="Facebook"
               >
-                <Instagram size={20} />
+                <Facebook size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/50366441/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
@@ -43,7 +56,7 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:contact@nuitblanche.production"
+                href="mailto:contact@nuitblancheproduction.com"
                 className="text-zinc-400 hover:text-white transition-colors"
                 aria-label="Email"
               >
@@ -125,24 +138,12 @@ export default function Footer() {
           <div className="text-zinc-500 text-sm">
             © {currentYear} Nuit Blanche Production. Tous droits réservés.
           </div>
-          <div className="flex gap-6">
-            <Link
-              href="/mentions-legales"
-              className="text-zinc-500 hover:text-white transition-colors text-sm"
-            >
-              Mentions Légales
-            </Link>
-            <Link
-              href="/politique-confidentialite"
-              className="text-zinc-500 hover:text-white transition-colors text-sm"
-            >
-              Politique de Confidentialité
-            </Link>
+          <div>
             <Link
               href="/conditions-generales"
               className="text-zinc-500 hover:text-white transition-colors text-sm"
             >
-              CGV
+              Conditions Générales de Vente
             </Link>
           </div>
         </div>
