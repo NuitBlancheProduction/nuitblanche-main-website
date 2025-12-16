@@ -13,7 +13,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 400);
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,31 +33,52 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800'
-            : 'bg-transparent'
+            ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 h-20'
+            : 'bg-transparent h-28'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo Icône - Invisible en haut, apparaît au scroll */}
-            <Link href="/" className="relative group">
-              <div
-                className={`relative transition-all duration-500 ${
-                  isScrolled
-                    ? 'opacity-100 pointer-events-auto'
-                    : 'opacity-0 pointer-events-none'
-                }`}
-              >
-                <Image
-                  src="/logos/logo-nuit-blanche-production-icone.webp"
-                  alt="Nuit Blanche Production"
-                  width={48}
-                  height={48}
-                  className="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
-                  priority
-                />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo Animé - Gauche */}
+            <Link href="/" className="relative group flex items-center">
+              <div className="relative">
+                {/* GROS LOGO (haut de page) */}
+                <div
+                  className={`absolute top-1/2 left-0 -translate-y-1/2 transition-all duration-500 ease-in-out ${
+                    !isScrolled
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-0 scale-75 pointer-events-none'
+                  }`}
+                >
+                  <Image
+                    src="/logos/logo-nuit-blanche-production.webp"
+                    alt="Nuit Blanche Production"
+                    width={384}
+                    height={128}
+                    className="h-20 md:h-24 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                    priority
+                  />
+                </div>
+
+                {/* ICÔNE (après scroll) */}
+                <div
+                  className={`transition-all duration-500 ease-in-out ${
+                    isScrolled
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-0 scale-125'
+                  }`}
+                >
+                  <Image
+                    src="/logos/logo-nuit-blanche-production-icone.webp"
+                    alt="Nuit Blanche Production"
+                    width={48}
+                    height={48}
+                    className="h-10 md:h-12 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                    priority
+                  />
+                </div>
               </div>
             </Link>
 
