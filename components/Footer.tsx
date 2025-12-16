@@ -15,7 +15,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="relative h-10 w-auto">
                 <Image
-                  src="/logos/icon.webp"
+                  src="/logos/logo-nuit-blanche-production-icone.webp"
                   alt="Nuit Blanche Icon"
                   width={40}
                   height={40}
@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
               <div className="relative h-8 w-auto">
                 <Image
-                  src="/logos/text.webp"
+                  src="/logos/nuit-blanche-production-texte.webp"
                   alt="Nuit Blanche Production"
                   width={120}
                   height={32}

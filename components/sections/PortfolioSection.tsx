@@ -26,9 +26,9 @@ function getYoutubeEmbedUrl(url: string): string {
 export function PortfolioSection() {
   const projects = [
     {
-      title: 'Campaign Ultra Moderne',
-      category: 'Publicité',
-      youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder
+      title: 'Norske Skog Golbey',
+      category: 'Industrie - Timelapse',
+      youtubeUrl: 'https://youtu.be/I0pU7wLKetw', // Placeholder
     },
     {
       title: 'Festival Summer 2024',
