@@ -37,7 +37,7 @@ export function ServicesSection() {
     {
       icon: Plane,
       title: 'Drone & Technique',
-      description: 'Vues Aériennes, FPV Racing, Prises Techniques',
+      description: 'Vues Aériennes, Cartographie, Inspection',
     },
   ];
 
