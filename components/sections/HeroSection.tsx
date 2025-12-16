@@ -7,82 +7,88 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    
     const video = videoRef.current;
     if (!video) return;
 
-    // Force la lecture de la vidéo sur mobile
-    const playVideo = async () => {
+    // Configuration agressive pour iOS
+    video.setAttribute('playsinline', 'true');
+    video.setAttribute('webkit-playsinline', 'true');
+    video.setAttribute('x-webkit-airplay', 'deny');
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+
+    const attemptPlay = async () => {
       try {
-        // Définir les attributs nécessaires pour mobile
-        video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
-        video.muted = true;
-        video.autoplay = true;
-        
+        await video.load();
         await video.play();
-        setIsVideoLoaded(true);
-      } catch (error) {
-        console.log('Autoplay bloqué:', error);
-        // Fallback: essayer de jouer au premier touch
-        const playOnInteraction = async () => {
-          try {
-            await video.play();
-            setIsVideoLoaded(true);
-          } catch (e) {
-            console.error('Impossible de lire la vidéo:', e);
-          }
-        };
-        
-        document.addEventListener('touchstart', playOnInteraction, { once: true });
-        document.addEventListener('click', playOnInteraction, { once: true });
+      } catch (err) {
+        console.log('Video play failed:', err);
+        setVideoError(true);
       }
     };
 
-    playVideo();
-  }, []);
+    // Essayer de jouer dès que possible
+    if (video.readyState >= 2) {
+      attemptPlay();
+    } else {
+      video.addEventListener('loadeddata', attemptPlay, { once: true });
+    }
+
+    // Fallback sur interaction utilisateur
+    const playOnTouch = () => {
+      video.play().catch(() => setVideoError(true));
+    };
+
+    document.addEventListener('touchstart', playOnTouch, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', playOnTouch);
+    };
+  }, [isMounted]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Vidéo en arrière-plan */}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
+      {/* Vidéo background */}
       <video
         ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        webkit-playsinline="true"
         preload="auto"
+        poster="/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
+        onError={() => setVideoError(true)}
         style={{ 
-          pointerEvents: 'none',
-          WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)'
+          opacity: videoError ? 0 : 1,
+          transition: 'opacity 0.3s'
         }}
-        onLoadedData={() => setIsVideoLoaded(true)}
       >
         <source src="/hero-background.mp4" type="video/mp4" />
-        {/* Fallback: image si la vidéo ne charge pas */}
-        <Image
-          src="/hero-fallback.jpg"
-          alt="Background"
-          fill
-          className="object-cover"
-          priority
-        />
       </video>
 
-      {/* Image de fallback pour mobile si la vidéo ne se charge pas */}
-      {!isVideoLoaded && (
-        <div className="absolute inset-0 md:hidden">
-          <Image
-            src="/hero-fallback.jpg"
-            alt="Background"
-            fill
-            className="object-cover"
-            priority
+      {/* Image de fallback si la vidéo ne fonctionne pas */}
+      {videoError && (
+        <div className="absolute inset-0 bg-zinc-900">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ 
+              backgroundImage: 'url(/hero-poster.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           />
         </div>
       )}
