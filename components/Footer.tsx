@@ -101,7 +101,7 @@ export default function Footer() {
                   href="/#fondateurs"
                   className="text-zinc-400 hover:text-white transition-colors text-sm"
                 >
-                  L'Alliance
+                  Le Casting
                 </Link>
               </li>
               <li>

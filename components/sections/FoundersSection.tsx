@@ -45,7 +45,7 @@ export function FoundersSection() {
         variants={staggerContainer}
       >
         <motion.div variants={fadeInUp} className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">L'Alliance</h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">Le Casting</h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Un binôme complémentaire au service de votre vision
           </p>
@@ -63,7 +63,11 @@ export function FoundersSection() {
                   src={founder.image}
                   alt={founder.name}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className={`grayscale group-hover:grayscale-0 transition-all duration-500 ${
+                    founder.name === 'Maxime' 
+                      ? 'object-cover object-top' 
+                      : 'object-cover scale-110'
+                  }`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />

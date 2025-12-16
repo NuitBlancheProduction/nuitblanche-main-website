@@ -23,7 +23,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/#services', label: 'Services' },
     { href: '/#portfolio', label: 'Portfolio' },
-    { href: '/#fondateurs', label: 'L\'Alliance' },
+    { href: '/#fondateurs', label: 'Le Casting' },
     { href: '/#contact', label: 'Contact' },
   ];
 
