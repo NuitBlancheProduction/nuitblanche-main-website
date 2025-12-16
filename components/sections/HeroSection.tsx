@@ -2,21 +2,90 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Force la lecture de la vidéo sur mobile
+    const playVideo = async () => {
+      try {
+        // Définir les attributs nécessaires pour mobile
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.muted = true;
+        video.autoplay = true;
+        
+        await video.play();
+        setIsVideoLoaded(true);
+      } catch (error) {
+        console.log('Autoplay bloqué:', error);
+        // Fallback: essayer de jouer au premier touch
+        const playOnInteraction = async () => {
+          try {
+            await video.play();
+            setIsVideoLoaded(true);
+          } catch (e) {
+            console.error('Impossible de lire la vidéo:', e);
+          }
+        };
+        
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        document.addEventListener('click', playOnInteraction, { once: true });
+      }
+    };
+
+    playVideo();
+  }, []);
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Vidéo en arrière-plan */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        webkit-playsinline="true"
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ 
+          pointerEvents: 'none',
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)'
+        }}
+        onLoadedData={() => setIsVideoLoaded(true)}
       >
         <source src="/hero-background.mp4" type="video/mp4" />
+        {/* Fallback: image si la vidéo ne charge pas */}
+        <Image
+          src="/hero-fallback.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
       </video>
+
+      {/* Image de fallback pour mobile si la vidéo ne se charge pas */}
+      {!isVideoLoaded && (
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/hero-fallback.jpg"
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
 
       {/* Overlay sombre pour la lisibilité */}
       <div className="absolute inset-0 bg-black/60" />
