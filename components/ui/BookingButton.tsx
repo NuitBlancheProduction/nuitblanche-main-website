@@ -11,7 +11,8 @@ export function BookingButton({ variant = 'default', className = '' }: BookingBu
 
   return (
     <motion.button
-      data-cal-link="denis-nuitblanche/30min"
+      data-cal-link="nuitblancheproduction/rdv"
+      data-cal-namespace="rdv"
       data-cal-config='{"layout":"month_view"}'
       className={`
         group relative
@@ -81,7 +82,7 @@ export function BookingButton({ variant = 'default', className = '' }: BookingBu
         transition-colors duration-500
         whitespace-nowrap
       `}>
-        {isCompact ? "L'appel avec Denis" : "Planifiez un appel avec Denis"}
+        {isCompact ? "Planifier un appel" : "Planifiez un appel avec Denis"}
       </span>
 
       {/* Effet de brillance au survol */}
