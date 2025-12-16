@@ -31,29 +31,29 @@ export function PortfolioSection() {
       youtubeUrl: 'https://youtu.be/I0pU7wLKetw', // Placeholder
     },
     {
-      title: 'Festival Summer 2024',
-      category: 'Événementiel',
-      youtubeUrl: 'https://www.youtube.com/watch?v=9bZkp7q19f0', // Placeholder
+      title: 'Les hopitaux voient la vie en vosges',
+      category: 'Public',
+      youtubeUrl: 'https://youtu.be/LcbQlzOKlnM', // Placeholder
     },
     {
-      title: 'Brand Story Premium',
+      title: 'Confiserie des Hautes Vosges',
       category: 'Corporate',
-      youtubeUrl: 'https://www.youtube.com/watch?v=jNQXAC9IVRw', // Placeholder
+      youtubeUrl: 'https://youtu.be/C1gptn3m_Ms', // Placeholder
     },
     {
-      title: 'Aerial Masterpiece',
-      category: 'Drone',
-      youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder
+      title: 'Chazal',
+      category: 'CV à l envers',
+      youtubeUrl: 'https://youtu.be/9nVo8WpK5mg', // Placeholder
     },
     {
-      title: 'Tech Launch Event',
-      category: 'Corporate',
-      youtubeUrl: 'https://www.youtube.com/watch?v=9bZkp7q19f0', // Placeholder
+      title: 'Sicovad',
+      category: 'Public - Timelapse',
+      youtubeUrl: 'https://youtu.be/TSf_HKgMpWM', // Placeholder
     },
     {
-      title: 'Fashion Week Aftermovie',
-      category: 'Événementiel',
-      youtubeUrl: 'https://www.youtube.com/watch?v=jNQXAC9IVRw', // Placeholder
+      title: 'ANLCI',
+      category: 'Reportage',
+      youtubeUrl: 'https://youtu.be/xUhE4ijq1j4', // Placeholder
     },
   ];
 
