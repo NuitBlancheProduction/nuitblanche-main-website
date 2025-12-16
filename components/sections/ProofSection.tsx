@@ -2,10 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { LogoMarquee } from '@/components/ui/logo-marquee';
 
-export function ProofSection() {
-  // Lecture automatique du dossier clients côté serveur
-  let clientFiles: string[] = [];
-
+async function getClientLogos(): Promise<string[]> {
   try {
     const clientsDir = path.join(process.cwd(), 'public', 'clients');
     
@@ -15,15 +12,22 @@ export function ProofSection() {
       
       // Filtrer uniquement les images
       const imageExtensions = ['.png', '.jpg', '.jpeg', '.svg', '.webp', '.gif'];
-      clientFiles = allFiles.filter(file => {
+      return allFiles.filter(file => {
         const ext = path.extname(file).toLowerCase();
         return imageExtensions.includes(ext);
       });
     }
+    
+    return [];
   } catch (error) {
     console.error('Erreur lors de la lecture du dossier clients:', error);
-    // En cas d'erreur, on continue avec un tableau vide
+    return [];
   }
+}
+
+export async function ProofSection() {
+  // Lecture automatique du dossier clients côté serveur
+  const clientFiles = await getClientLogos();
 
   return (
     <section className="py-20 bg-zinc-900/50 overflow-hidden border-y border-zinc-800">
