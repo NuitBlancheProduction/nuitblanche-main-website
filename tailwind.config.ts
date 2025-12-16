@@ -78,10 +78,21 @@ const config: Config = {
             height: '0',
           },
         },
+        // Animation pour la bordure qui tourne
+        'spin-slow': {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        // Animation lente pour la bordure rouge (3 secondes par tour)
+        'spin-slow': 'spin-slow 3s linear infinite',
       },
     },
   },

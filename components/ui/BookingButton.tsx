@@ -25,29 +25,32 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
         data-cal-link="nuitblancheproduction/rdv"
         data-cal-config='{"layout":"month_view"}'
         className={cn(
-          'group relative flex items-center justify-center gap-3 px-6 py-3 bg-black rounded-full transition-all duration-300',
+          'group relative flex items-center justify-center gap-3 px-6 py-3 rounded-full transition-all duration-300',
           className
         )}
       >
-        {/* Border Beam - Rotating Red Glow */}
-        <div className="absolute inset-0 rounded-full overflow-hidden">
-          <div className="absolute inset-[-2px] rounded-full bg-[conic-gradient(from_0deg,transparent_0%,transparent_40%,#ef4444_50%,#dc2626_55%,transparent_60%,transparent_100%)] animate-spin-slow opacity-80" />
-          <div className="absolute inset-[2px] rounded-full bg-black" />
+        {/* Border Beam - Rotating Red Glow - NOW ROTATES! */}
+        <div className="absolute inset-0 rounded-full animate-spin-slow">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-500 via-transparent to-transparent opacity-70" />
         </div>
+        
+        {/* Static background */}
+        <div className="absolute inset-[2px] rounded-full bg-black" />
 
         {/* Inner Red Glow */}
         <div className="absolute inset-0 rounded-full bg-red-600/20 blur-xl group-hover:bg-red-500/30 transition-all duration-300" />
 
         {/* Content */}
         <div className="relative flex items-center gap-3 z-10">
-          {/* Avatar Container - No overflow hidden to show the green dot */}
+          {/* Avatar Container - FIXED */}
           <div className="relative w-8 h-8">
-            <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-red-500/50 group-hover:ring-red-400 transition-all duration-300">
+            <div className="absolute inset-0 w-8 h-8 rounded-full overflow-hidden ring-2 ring-red-500/50 group-hover:ring-red-400 transition-all duration-300">
               <Image
                 src="/team/denis-contact-reservation-appel.webp"
                 alt="Denis"
-                fill
-                className="object-cover transition-all duration-300 group-hover:scale-110"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
               />
             </div>
             {/* Green pulse dot - Outside overflow container */}
@@ -66,29 +69,32 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
       data-cal-link="nuitblancheproduction/rdv"
       data-cal-config='{"layout":"month_view"}'
       className={cn(
-        'group relative flex items-center justify-center gap-5 px-10 py-5 bg-black rounded-3xl transition-all duration-500 shadow-2xl hover:shadow-red-500/50',
+        'group relative flex items-center justify-center gap-5 px-10 py-5 rounded-3xl transition-all duration-500 shadow-2xl hover:shadow-red-500/50',
         className
       )}
     >
-      {/* Border Beam - Rotating Red Glow */}
-      <div className="absolute inset-0 rounded-3xl overflow-hidden">
-        <div className="absolute inset-[-3px] rounded-3xl bg-[conic-gradient(from_0deg,transparent_0%,transparent_40%,#ef4444_50%,#dc2626_55%,transparent_60%,transparent_100%)] animate-spin-slow opacity-90" />
-        <div className="absolute inset-[3px] rounded-3xl bg-black" />
+      {/* Border Beam - Rotating Red Glow - NOW ROTATES! */}
+      <div className="absolute inset-0 rounded-3xl animate-spin-slow">
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-red-500 via-transparent to-transparent opacity-80" />
       </div>
+      
+      {/* Static background */}
+      <div className="absolute inset-[3px] rounded-3xl bg-black" />
 
       {/* Inner Red Glow Effect */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-red-600/20 via-red-500/30 to-red-600/20 blur-2xl group-hover:from-red-500/30 group-hover:via-red-400/40 group-hover:to-red-500/30 transition-all duration-500" />
 
       {/* Content */}
       <div className="relative flex items-center gap-5 z-10">
-        {/* Avatar Container - No overflow hidden to show the green dot */}
+        {/* Avatar Container - FIXED */}
         <div className="relative w-14 h-14">
-          <div className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-red-500/60 group-hover:ring-red-400 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-red-500/50">
+          <div className="absolute inset-0 w-14 h-14 rounded-full overflow-hidden ring-2 ring-red-500/60 group-hover:ring-red-400 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-red-500/50">
             <Image
               src="/team/denis-contact-reservation-appel.webp"
               alt="Denis"
-              fill
-              className="object-cover transition-all duration-500 group-hover:scale-110"
+              width={56}
+              height={56}
+              className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
             />
           </div>
           {/* Green pulse dot - Outside overflow container */}
