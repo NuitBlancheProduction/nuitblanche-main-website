@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
   return (
@@ -51,17 +50,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex justify-center"
         >
-          <Button
-            data-cal-link="nuitblancheproduction/rdv"
-            data-cal-namespace="rdv"
-            data-cal-config='{"layout":"month_view"}'
-            size="lg"
-            className="bg-white hover:bg-zinc-200 text-black px-8 py-6 text-lg rounded-full group"
-          >
-            Démarrer un projet
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <BookingButton variant="default" />
         </motion.div>
       </motion.div>
 

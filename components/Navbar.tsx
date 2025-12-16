@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { BookingButton } from '@/components/ui/BookingButton';
 
 declare global {
   interface Window {
@@ -103,14 +104,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <button
-              data-cal-link="nuitblancheproduction/rdv"
-              data-cal-namespace="rdv"
-              data-cal-config='{"layout":"month_view"}'
-              className="bg-white hover:bg-zinc-200 text-black px-6 py-2.5 rounded-full transition-all font-medium"
-            >
-              Planifier un appel
-            </button>
+            <BookingButton variant="compact" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -145,15 +139,9 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <button
-                data-cal-link="nuitblancheproduction/rdv"
-                data-cal-namespace="rdv"
-                data-cal-config='{"layout":"month_view"}'
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full bg-white hover:bg-zinc-200 text-black px-6 py-3 rounded-full transition-all font-medium text-center"
-              >
-                Planifier un appel
-              </button>
+              <div onClick={() => setIsMobileMenuOpen(false)} className="pt-2">
+                <BookingButton variant="default" className="w-full justify-center" />
+              </div>
             </div>
           </motion.div>
         )}
