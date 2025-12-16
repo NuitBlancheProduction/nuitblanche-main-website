@@ -12,25 +12,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="relative h-10 w-auto">
-                <Image
-                  src="/logos/logo-nuit-blanche-production-icone.webp"
-                  alt="Nuit Blanche Icon"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative h-8 w-auto">
-                <Image
-                  src="/logos/nuit-blanche-production-texte.webp"
-                  alt="Nuit Blanche Production"
-                  width={120}
-                  height={32}
-                  className="object-contain"
-                />
-              </div>
+            {/* Logo Complet */}
+            <Link href="/" className="inline-block mb-4 group">
+              <Image
+                src="/logos/logo-nuit-blanche-production.webp"
+                alt="Nuit Blanche Production"
+                width={288}
+                height={96}
+                className="h-24 w-auto object-contain group-hover:opacity-80 transition-opacity"
+              />
             </Link>
             <p className="text-zinc-400 max-w-md">
               Agence de production audiovisuelle premium. Capturer l'essence.

@@ -35,8 +35,9 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-200 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-200 to-transparent z-10 pointer-events-none" />
 
-      {/* Conteneur du défilement */}
-      <div className="flex gap-24 animate-marquee py-6">
+      {/* Conteneur du défilement - scrollable */}
+      <div className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing">
+        <div className="flex gap-24 animate-marquee py-6 hover:animate-pause">
         {allLogos.map((file, index) => (
           <div
             key={`${file}-${index}`}
@@ -52,6 +53,7 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
             />
           </div>
         ))}
+      </div>
       </div>
 
       <style jsx>{`
@@ -69,8 +71,23 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
           width: max-content;
         }
 
-        .animate-marquee:hover {
+        .animate-marquee:hover,
+        .animate-marquee:active {
           animation-play-state: paused;
+        }
+
+        .animate-pause:hover {
+          animation-play-state: paused;
+        }
+
+        /* Cache la scrollbar */
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </div>

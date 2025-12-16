@@ -40,25 +40,28 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative h-10 w-auto">
-              <Image
-                src="/logos/logo-nuit-blanche-production-icone.webp"
-                alt="Nuit Blanche Icon"
-                width={40}
-                height={40}
-                className="object-contain group-hover:opacity-80 transition-opacity"
-              />
-            </div>
-            <div className="relative h-8 w-auto hidden sm:block">
-              <Image
-                src="/logos/nuit-blanche-production-texte.webp"
-                alt="Nuit Blanche"
-                width={120}
-                height={32}
-                className="object-contain group-hover:opacity-80 transition-opacity"
-              />
+          {/* Logo avec Morphing */}
+          <Link href="/" className="relative group">
+            <div className="relative transition-all duration-300">
+              {!isScrolled ? (
+                <Image
+                  src="/logos/logo-nuit-blanche-production.webp"
+                  alt="Nuit Blanche Production - Agence Vidéo"
+                  width={180}
+                  height={48}
+                  className="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                  priority
+                />
+              ) : (
+                <Image
+                  src="/logos/logo-nuit-blanche-production-icone.webp"
+                  alt="Nuit Blanche"
+                  width={40}
+                  height={40}
+                  className="h-10 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                  priority
+                />
+              )}
             </div>
           </Link>
 
