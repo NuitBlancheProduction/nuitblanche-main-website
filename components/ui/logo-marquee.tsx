@@ -40,7 +40,7 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-900/50 to-transparent z-10 pointer-events-none" />
 
       {/* Conteneur du défilement */}
-      <div className="flex gap-16 animate-marquee hover:pause-animation">
+      <div className="flex gap-16 animate-marquee">
         {allLogos.map((file, index) => (
           <div
             key={`${file}-${index}`}
@@ -51,7 +51,7 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
               alt={`Logo client ${file.split('.')[0]}`}
               width={120}
               height={48}
-              className="h-12 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+              className="h-12 w-auto object-contain grayscale opacity-60 brightness-150 hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:scale-125 transition-all duration-300 ease-out"
               style={{ maxWidth: '180px' }}
             />
           </div>
@@ -69,7 +69,7 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
         }
 
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 50s linear infinite;
           width: max-content;
         }
 

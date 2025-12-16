@@ -23,9 +23,9 @@ export function ProofSection() {
   return (
     <section className="py-20 bg-zinc-900/50 overflow-hidden border-y border-zinc-800">
       <div className="mb-12 text-center">
-        <p className="text-zinc-500 uppercase tracking-widest text-sm font-medium">
+        <h2 className="text-zinc-200 uppercase tracking-widest text-2xl md:text-3xl font-medium">
           Ils nous font confiance
-        </p>
+        </h2>
       </div>
 
       {loading ? (
