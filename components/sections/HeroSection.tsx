@@ -2,82 +2,38 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [videoError, setVideoError] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-    
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Configuration agressive pour iOS
-    video.setAttribute('playsinline', 'true');
-    video.setAttribute('webkit-playsinline', 'true');
-    video.setAttribute('x-webkit-airplay', 'deny');
-    video.muted = true;
-    video.defaultMuted = true;
-    video.autoplay = true;
-    video.loop = true;
-
-    const attemptPlay = async () => {
-      try {
-        await video.load();
-        await video.play();
-      } catch (err) {
-        console.log('Video play failed:', err);
-        setVideoError(true);
-      }
-    };
-
-    // Essayer de jouer dès que possible
-    if (video.readyState >= 2) {
-      attemptPlay();
-    } else {
-      video.addEventListener('loadeddata', attemptPlay, { once: true });
-    }
-
-    // Fallback sur interaction utilisateur
-    const playOnTouch = () => {
-      video.play().catch(() => setVideoError(true));
-    };
-
-    document.addEventListener('touchstart', playOnTouch, { once: true });
-
-    return () => {
-      document.removeEventListener('touchstart', playOnTouch);
-    };
-  }, [isMounted]);
+  // HTML brut avec tous les attributs critiques pour iOS
+  const videoHTML = `
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      poster="/hero-poster.jpg"
+      class="absolute inset-0 w-full h-full object-cover"
+      style="opacity: 1; transition: opacity 0.3s;"
+    >
+      <source src="/hero-background.mp4" type="video/mp4" />
+    </video>
+  `;
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
-      {/* Vidéo background */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        poster="/hero-poster.jpg"
-        className="absolute inset-0 w-full h-full object-cover"
-        onError={() => setVideoError(true)}
-        style={{ 
-          opacity: videoError ? 0 : 1,
-          transition: 'opacity 0.3s'
-        }}
-      >
-        <source src="/hero-background.mp4" type="video/mp4" />
-      </video>
+      {/* Vidéo background avec dangerouslySetInnerHTML */}
+      {!videoError && (
+        <div
+          dangerouslySetInnerHTML={{ __html: videoHTML }}
+          onError={() => setVideoError(true)}
+        />
+      )}
 
       {/* Image de fallback si la vidéo ne fonctionne pas */}
       {videoError && (
