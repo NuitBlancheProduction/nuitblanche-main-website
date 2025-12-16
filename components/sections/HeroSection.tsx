@@ -7,8 +7,22 @@ import { BookingButton } from '@/components/ui/BookingButton';
 export function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-zinc-950" />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iIzI3MjcyNyIgc3Ryb2tlLXdpZHRoPSIuNSIvPjwvZz48L3N2Zz4=')] opacity-20" />
+      {/* Vidéo en arrière-plan */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-background.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay sombre pour la lisibilité */}
+      <div className="absolute inset-0 bg-black/60" />
+      
+      {/* Dégradé en bas pour transition douce */}
+      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
       <motion.div
         className="relative z-10 text-center px-4 max-w-5xl mx-auto"
