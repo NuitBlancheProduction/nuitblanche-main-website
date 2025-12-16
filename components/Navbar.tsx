@@ -36,7 +36,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 h-20'
-            : 'bg-transparent h-40 md:h-48'
+            : 'bg-transparent h-28'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -55,9 +55,9 @@ export default function Navbar() {
                   <Image
                     src="/logos/logo-nuit-blanche-production.webp"
                     alt="Nuit Blanche Production"
-                    width={1536}
-                    height={512}
-                    className="h-32 md:h-40 lg:h-48 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                    width={384}
+                    height={128}
+                    className="h-20 md:h-24 w-auto object-contain group-hover:opacity-90 transition-opacity"
                     priority
                   />
                 </div>
