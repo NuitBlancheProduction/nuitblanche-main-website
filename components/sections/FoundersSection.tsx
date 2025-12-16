@@ -24,14 +24,14 @@ export function FoundersSection() {
       role: 'Stratégie & Développement',
       description:
         'Expert en stratégie de contenu et développement commercial, Denis transforme chaque projet en opportunité de croissance.',
-      image: '/team/denis.webp',
+      image: '/team/denis-realisateur-fondateur-nuit-blanche-production.webp',
     },
     {
       name: 'Maxime',
       role: 'Direction Artistique & Technique',
       description:
         'Visionnaire créatif et passionné de technique, Maxime donne vie aux concepts les plus audacieux avec une précision cinématographique.',
-      image: '/team/maxime.webp',
+      image: '/team/maxime-realisateur-fondateur-nuit-blanche-production.webp',
     },
   ];
 

@@ -78,7 +78,7 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
         {/* Avatar with green pulse dot */}
         <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-zinc-700 group-hover:ring-zinc-900 transition-all duration-500">
           <Image
-            src="/team/denis_cta.webp"
+            src="/team/denis-contact-reservation-appel.webp"
             alt="Denis"
             fill
             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
