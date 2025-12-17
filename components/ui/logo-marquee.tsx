@@ -7,6 +7,19 @@ interface LogoMarqueeProps {
   files: string[];
 }
 
+/**
+ * Transforme un nom de fichier en alt text SEO-friendly
+ * Ex: "construction-batiment-fayat.webp" → "Construction Batiment Fayat"
+ */
+function generateAltText(filename: string): string {
+  return filename
+    .replace(/\.(webp|png|jpg|jpeg|svg|gif)$/i, '') // Supprime l'extension
+    .replace(/[-_]/g, ' ') // Remplace tirets et underscores par des espaces
+    .split(' ') // Divise en mots
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalise chaque mot
+    .join(' '); // Reconstruit la chaîne
+}
+
 export function LogoMarquee({ files }: LogoMarqueeProps) {
   const [shuffledFiles, setShuffledFiles] = useState<string[]>([]);
 
@@ -38,21 +51,25 @@ export function LogoMarquee({ files }: LogoMarqueeProps) {
       {/* Conteneur du défilement - scrollable */}
       <div className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing">
         <div className="flex gap-24 animate-marquee py-6 hover:animate-pause">
-        {allLogos.map((file, index) => (
-          <div
-            key={`${file}-${index}`}
-            className="flex-shrink-0 flex items-center justify-center"
-          >
-            <Image
-              src={`/clients/${file}`}
-              alt={`Logo client ${file.split('.')[0]}`}
-              width={160}
-              height={80}
-              className="h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 ease-out"
-              style={{ maxWidth: '240px' }}
-            />
-          </div>
-        ))}
+        {allLogos.map((file, index) => {
+          const altText = generateAltText(file);
+          
+          return (
+            <div
+              key={`${file}-${index}`}
+              className="flex-shrink-0 flex items-center justify-center"
+            >
+              <Image
+                src={`/clients/${file}`}
+                alt={altText}
+                width={160}
+                height={80}
+                className="h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 ease-out"
+                style={{ maxWidth: '240px' }}
+              />
+            </div>
+          );
+        })}
       </div>
       </div>
 
