@@ -33,6 +33,7 @@ Architecture moderne basée sur la performance (Server Side Rendering) et l'évo
   ├── /lib           # Utilitaires (utils.ts)
   └── /hooks         # Custom React Hooks
 
+```
 
 🌍 Déploiement
 Le déploiement est automatisé via Vercel.
