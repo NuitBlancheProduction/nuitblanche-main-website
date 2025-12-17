@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       'Production vidéo globale : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie et Inspection. Basés à Golbey.',
     images: [
       {
-        url: '/nuit-blanche-production-video-drone-vosges-social-card.webp',
+        url: '/nuit-blanche-production-video-drone-vosges-social-card.jpg',
         width: 1200,
         height: 630,
         alt: 'Nuit Blanche Production - Agence Vidéo & Drone Technique Vosges',
