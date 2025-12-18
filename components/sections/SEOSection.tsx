@@ -1,28 +1,46 @@
 export function SEOSection() {
   return (
-    <section className="bg-zinc-900 py-16 md:py-20">
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 max-w-6xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
-          Agence de Production Vidéo & Drone Technique dans les Vosges
-        </h2>
-        
-        <div className="space-y-6 text-zinc-400 text-base md:text-lg leading-relaxed">
-          <p className="text-justify">
-            <strong className="text-zinc-300">Nuit Blanche Production</strong> est votre agence audiovisuelle de référence basée à <strong className="text-zinc-300">Golbey</strong>, près d'Épinal dans les Vosges. Nous accompagnons entreprises, institutions et collectivités dans la création de contenus vidéo professionnels : <strong className="text-zinc-300">films d'entreprise</strong>, <strong className="text-zinc-300">publicités</strong>, <strong className="text-zinc-300">captations événementielles</strong> et bien plus encore. Notre expertise technique unique nous distingue dans le <strong className="text-zinc-300">Grand Est</strong> (Nancy, Metz, Luxembourg) grâce à nos compétences en <strong className="text-zinc-300">drone</strong>, <strong className="text-zinc-300">photogrammétrie</strong>, <strong className="text-zinc-300">cartographie</strong> et <strong className="text-zinc-300">inspection technique</strong> pour le secteur industriel. Nous mettons notre savoir-faire au service de projets exigeants nécessitant précision et innovation technologique.
-          </p>
+    <section className="bg-zinc-950 border-t border-zinc-900 py-20 md:py-24">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 max-w-7xl">
+        <div className="grid md:grid-cols-[200px_1fr] lg:grid-cols-[240px_1fr] gap-12 lg:gap-16">
+          {/* Titre Left Column */}
+          <div>
+            <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-zinc-600">
+              L'Agence
+            </h2>
+          </div>
           
-          <p className="text-justify">
-            Notre agence couvre l'ensemble de vos besoins audiovisuels grâce à nos pôles spécialisés et notre réseau de filiales dédiées. Pour le <strong className="text-zinc-300">suivi de chantier BTP</strong> et le <strong className="text-zinc-300">timelapse longue durée</strong>, nous opérons via notre filiale dédiée{' '}
-            <a 
-              href="https://www.chantierfilm.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors duration-200 font-medium"
-            >
-              Chantier Film
-            </a>
-            , spécialiste reconnu de la documentation visuelle de projets de construction. Cette organisation nous permet de vous proposer une expertise pointue sur chaque domaine d'intervention, tout en garantissant la qualité et la réactivité que mérite votre projet.
-          </p>
+          {/* Content Right Column - 2 Columns Layout */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
+            {/* Paragraphe 1 : Identité & Localisation */}
+            <div className="space-y-4">
+              <p className="text-sm leading-relaxed text-zinc-500">
+                <span className="text-zinc-400 font-medium">Nuit Blanche Production</span> est une agence audiovisuelle basée à Golbey, près d'Épinal dans les Vosges. Nous accompagnons entreprises, institutions et collectivités du Grand Est dans la création de films d'entreprise, publicités et captations événementielles.
+              </p>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Notre expertise technique nous distingue grâce à nos compétences avancées en drone, photogrammétrie, cartographie et inspection technique pour le secteur industriel. Nous intervenons régulièrement à Nancy, Metz et jusqu'au Luxembourg pour des projets exigeants nécessitant précision et innovation technologique.
+              </p>
+            </div>
+            
+            {/* Paragraphe 2 : Réseau & Filiales */}
+            <div className="space-y-4">
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Notre agence couvre l'ensemble de vos besoins audiovisuels grâce à nos pôles spécialisés et notre réseau de filiales dédiées. Chaque domaine d'intervention bénéficie d'une expertise pointue et d'un savoir-faire éprouvé.
+              </p>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Pour le suivi de chantier BTP et le timelapse longue durée, nous opérons via notre filiale{' '}
+                <a 
+                  href="https://www.chantierfilm.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-zinc-300 underline underline-offset-2 decoration-zinc-700 hover:decoration-zinc-500 transition-colors duration-200"
+                >
+                  Chantier Film
+                </a>
+                , spécialiste reconnu de la documentation visuelle de projets de construction. Cette organisation garantit la qualité et la réactivité que mérite votre projet.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
