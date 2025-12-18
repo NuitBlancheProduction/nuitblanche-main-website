@@ -61,7 +61,7 @@ export function FoundersSection() {
               <div className="aspect-[4/5] bg-gradient-to-br from-zinc-800 to-zinc-900 relative overflow-hidden">
                 <Image
                   src={founder.image}
-                  alt={founder.name}
+                  alt={`${founder.name} - ${founder.role} - Nuit Blanche Production Vosges`}
                   fill
                   className={`grayscale group-hover:grayscale-0 transition-all duration-500 ${
                     founder.name === 'Maxime' 
