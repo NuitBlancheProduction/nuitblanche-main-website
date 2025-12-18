@@ -28,7 +28,7 @@ export function ServicesSection() {
         'Interview Dirigeant',
         'Onboarding',
         'Communication Interne',
-        'Motion Design'
+        'CV Vidéo Inversé'
       ],
       gradient: 'from-blue-500/10 via-cyan-500/5 to-transparent'
     },
@@ -39,8 +39,8 @@ export function ServicesSection() {
       tags: [
         'Spot TV',
         'Campagne Digitale (Reels/TikTok)',
+        'Shooting Mode & Packshot',
         'Storytelling',
-        'Direction Artistique',
         'Casting'
       ],
       gradient: 'from-purple-500/10 via-pink-500/5 to-transparent'
@@ -52,7 +52,7 @@ export function ServicesSection() {
       tags: [
         'Aftermovie Festival',
         'Retransmission Direct (Live)',
-        'Concerts Multi-caméras',
+        'Reportage Photo',
         'Conférences',
         'Salon Pro'
       ],
@@ -63,7 +63,7 @@ export function ServicesSection() {
       title: 'DRONE CINÉMA & INSPECTION',
       description: 'La hauteur au service de l\'image et de la donnée technique. Double expertise créative et industrielle.',
       tags: [
-        'Prise de vue 6K',
+        'Photo Aérienne HD',
         'Photogrammétrie',
         'Orthophotographie',
         'Inspection Technique',
