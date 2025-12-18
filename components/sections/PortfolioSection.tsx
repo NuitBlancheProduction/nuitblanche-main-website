@@ -1,3 +1,49 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Play, X } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { useState } from 'react';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+// Extract YouTube ID from URL - Ultra-robust regex covering all cases
+function getYoutubeId(url: string): string {
+  const match = url.match(
+    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
+  );
+  return match ? match[1] : '';
+}
+
+// Generate YouTube thumbnail URL with fallback
+function getYoutubeThumbnail(url: string): string {
+  const videoId = getYoutubeId(url);
+  if (!videoId) {
+    // Fallback image for invalid URLs
+    return '/placeholder-video.jpg';
+  }
+  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+}
+
+// Generate YouTube embed URL with autoplay
+function getYoutubeEmbedUrl(url: string): string {
+  const videoId = getYoutubeId(url);
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+}
+
 export function PortfolioSection() {
   const [openDialog, setOpenDialog] = useState<number | null>(null);
 
