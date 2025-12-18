@@ -18,9 +18,14 @@ export function SEOSection() {
               </p>
             </div>
             
-            <p className="text-sm leading-relaxed text-zinc-500">
-              Agence créative au cœur du Grand-Est, près d'Épinal. Nous concevons des films d'entreprise, publicités et captations événementielles pour les entreprises, institutions et collectivités de Nancy à Metz, jusqu'au Luxembourg.
-            </p>
+            <div className="space-y-3">
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Agence créative au cœur du Grand-Est, près d'Épinal. Nous concevons des films d'entreprise, publicités et captations événementielles pour les entreprises, institutions et collectivités de Nancy à Metz, jusqu'au Luxembourg.
+              </p>
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Notre approche combine storytelling stratégique et qualité cinéma pour valoriser votre marque employeur et vos produits.
+              </p>
+            </div>
           </div>
           
           {/* COLONNE 2 : EXPERTISE TECHNIQUE */}
@@ -68,6 +73,10 @@ export function SEOSection() {
             <p className="text-xs leading-relaxed text-zinc-600 pt-4 border-t border-zinc-900">
               Solutions techniques pour l'industrie et le secteur tertiaire.
             </p>
+            
+            <p className="text-xs leading-relaxed text-zinc-600">
+              Des solutions d'imagerie technique pour l'industrie 4.0, les géomètres et les collectivités nécessitant des relevés de haute précision.
+            </p>
           </div>
           
           {/* COLONNE 3 : RÉSEAU & FILIALES */}
@@ -104,6 +113,18 @@ export function SEOSection() {
             <p className="text-xs leading-relaxed text-zinc-600">
               Une organisation par pôles d'expertise pour garantir qualité et réactivité sur chaque projet.
             </p>
+          </div>
+          
+          {/* DATA ROW : DENSITÉ SÉMANTIQUE SEO */}
+          <div className="col-span-1 md:col-span-3 border-t border-zinc-900 p-8 md:p-10 lg:p-12">
+            <div className="space-y-4">
+              <p className="text-[10px] font-mono leading-relaxed text-zinc-700 tracking-wide">
+                <span className="text-zinc-600">ZONES D'INTERVENTION :</span> GRAND-EST • VOSGES (ÉPINAL, GOLBEY, REMIREMONT) • MEURTHE-ET-MOSELLE (NANCY) • MOSELLE (METZ, THIONVILLE) • ALSACE (STRASBOURG, COLMAR) • LUXEMBOURG
+              </p>
+              <p className="text-[10px] font-mono leading-relaxed text-zinc-700 tracking-wide">
+                <span className="text-zinc-600">SERVICES :</span> VIDÉO CORPORATE • FILM INDUSTRIEL • PUBLICITÉ TV & DIGITALE • PHOTOGRAMMÉTRIE • INSPECTION TECHNIQUE • TIMELAPSE BTP (VIA CHANTIER FILM) • INTERVIEW DIRIGEANT
+              </p>
+            </div>
           </div>
           
         </div>
