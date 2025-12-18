@@ -119,7 +119,7 @@ export function SEOSection() {
           <div className="col-span-1 md:col-span-3 border-t border-zinc-900 p-8 md:p-10 lg:p-12">
             <div className="space-y-4">
               <p className="text-[10px] font-mono leading-relaxed text-zinc-700 tracking-wide">
-                <span className="text-zinc-600">ZONES D'INTERVENTION :</span> GRAND-EST • VOSGES (ÉPINAL, GOLBEY, REMIREMONT) • MEURTHE-ET-MOSELLE (NANCY) • MOSELLE (METZ, THIONVILLE) • ALSACE (STRASBOURG, COLMAR) • LUXEMBOURG
+                <span className="text-zinc-600">ZONES D'INTERVENTION :</span> GRAND-EST • VOSGES (ÉPINAL, GOLBEY, REMIREMONT) • MEURTHE-ET-MOSELLE (NANCY) • MOSELLE (METZ, THIONVILLE) • ALSACE (STRASBOURG, COLMAR) • LUXEMBOURG • SUISSE
               </p>
               <p className="text-[10px] font-mono leading-relaxed text-zinc-700 tracking-wide">
                 <span className="text-zinc-600">SERVICES :</span> VIDÉO CORPORATE • FILM INDUSTRIEL • PUBLICITÉ TV & DIGITALE • PHOTOGRAMMÉTRIE • INSPECTION TECHNIQUE • TIMELAPSE BTP (VIA CHANTIER FILM) • INTERVIEW DIRIGEANT
