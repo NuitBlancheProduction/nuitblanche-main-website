@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       'Production vidéo globale : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie et Inspection. Basés à Golbey.',
     images: [
       {
-        url: '/nuit-blanche-production-video-drone-vosges-social-card.webp',
+        url: '/nuit-blanche-production-video-drone-vosges-social-card.jpg',
         width: 1200,
         height: 630,
         alt: 'Nuit Blanche Production - Agence Vidéo & Drone Technique Vosges',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'Nuit Blanche Production | Agence Vidéo & Drone Technique',
     description:
       'Production vidéo globale : Corporate, Pub, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie & Inspection.',
-    images: ['/nuit-blanche-production-video-drone-vosges-social-card.webp'],
+    images: ['/nuit-blanche-production-video-drone-vosges-social-card.jpg'],
   },
   robots: {
     index: true,
@@ -94,7 +94,7 @@ const jsonLd = {
         'Agence de production vidéo professionnelle spécialisée en vidéo corporate, publicité, événementiel et services drone techniques : photogrammétrie, cartographie et inspection.',
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
-      image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.webp`,
+      image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.jpg`,
       priceRange: '$$-$$$',
       areaServed: [
         {
@@ -146,7 +146,7 @@ const jsonLd = {
         longitude: 6.435260076219138,
       },
       priceRange: '$$-$$$',
-      image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.webp`,
+      image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.jpg`,
       sameAs: [
         'https://www.instagram.com/nuitblancheproduction',
         'https://www.linkedin.com/company/50366441/',
