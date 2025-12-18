@@ -7,10 +7,8 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// Configuration de l'URL de base pour les métadonnées (Vercel ou production)
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'https://www.nuitblancheproduction.com';
+// URL de base sécurisée pour le SEO - toujours pointer vers le domaine de production
+const baseUrl = 'https://www.nuitblancheproduction.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
