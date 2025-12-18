@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 // Configuration de l'URL de base pour les métadonnées (Vercel ou production)
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'https://nuitblanche-main-website.vercel.app';
+  : 'https://www.nuitblancheproduction.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
