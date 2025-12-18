@@ -75,7 +75,7 @@ export function ContactSection() {
               </div>
               <div className="flex-1 text-left">
                 <p className="text-sm text-zinc-500 mb-1">Email</p>
-                <p className="text-lg text-zinc-400 group-hover:text-white transition-colors duration-300 break-all">
+                <p className="text-sm text-zinc-400 group-hover:text-white transition-colors duration-300">
                   contact@nuitblancheproduction.com
                 </p>
               </div>
@@ -94,8 +94,8 @@ export function ContactSection() {
               </div>
               <div className="flex-1 text-left">
                 <p className="text-sm text-zinc-500 mb-1">Téléphone</p>
-                <p className="text-lg text-zinc-400 group-hover:text-white transition-colors duration-300">
-                  +33 6 51 30 13 83
+                <p className="text-sm text-zinc-400 group-hover:text-white transition-colors duration-300">
+                  06 51 30 13 83
                 </p>
               </div>
             </motion.a>
