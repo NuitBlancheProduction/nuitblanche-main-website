@@ -105,10 +105,10 @@ export function PortfolioSection() {
 
   return (
     <section id="portfolio" className="relative py-32 px-4 overflow-hidden">
-      {/* Background avec gradient radial coloré */}
+      {/* Background avec gradient gris subtil */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-zinc-700/20 via-transparent to-transparent" />
       
       {/* Noise texture overlay */}
       <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay">
@@ -125,7 +125,7 @@ export function PortfolioSection() {
         {/* En-tête avec gradient de texte */}
         <motion.div variants={fadeInUp} className="text-center mb-16">
           <motion.h2 
-            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-100 to-zinc-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -155,7 +155,7 @@ export function PortfolioSection() {
               <DialogTrigger asChild>
                 <motion.div
                   variants={fadeInUp}
-                  className={`group relative rounded-3xl overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-500 ease-out cursor-pointer ${gridClasses[index]}`}
+                  className={`group relative rounded-3xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500 ease-out cursor-pointer ${gridClasses[index]}`}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -172,7 +172,7 @@ export function PortfolioSection() {
                     
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/0 via-purple-900/0 to-indigo-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/0 via-zinc-800/0 to-zinc-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
                   {/* Badge catégorie */}
@@ -185,7 +185,7 @@ export function PortfolioSection() {
                   {/* Play Button avec animation */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
                     <motion.div 
-                      className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-2xl shadow-indigo-500/50"
+                      className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-2xl shadow-white/30"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.2 }}
                     >
@@ -196,7 +196,7 @@ export function PortfolioSection() {
                   {/* Project Info avec animation de slide */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     <motion.p 
-                      className="text-xs text-indigo-300 font-semibold mb-2 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity"
+                      className="text-xs text-zinc-400 font-semibold mb-2 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 0.8 }}
                     >
@@ -213,7 +213,7 @@ export function PortfolioSection() {
 
                   {/* Effet de lueur sur hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-zinc-800/10 via-zinc-700/10 to-zinc-600/10" />
                   </div>
                 </motion.div>
               </DialogTrigger>
@@ -245,7 +245,7 @@ export function PortfolioSection() {
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border mb-3 ${project.badgeColor}`}>
                     {project.badge}
                   </span>
-                  <p className="text-sm text-indigo-300 font-medium mb-2 uppercase tracking-wider">
+                  <p className="text-sm text-zinc-400 font-medium mb-2 uppercase tracking-wider">
                     {project.category}
                   </p>
                   <h3 className="text-3xl font-bold text-white">{project.title}</h3>
