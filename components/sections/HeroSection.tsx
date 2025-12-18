@@ -54,60 +54,59 @@ export function HeroSection() {
       {/* Dégradé bas */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         {/* 1. LA PUNCHLINE - L'Impact Émotionnel */}
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mb-8"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-4"
         >
-          <span className="block text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-none uppercase">
-            La créativité
-          </span>
-          <span className="block text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-none uppercase mt-2">
-            ne dort jamais.
-          </span>
-        </motion.div>
-
-        {/* 2. LE TITRE SEO - Le Business */}
-        <motion.h1
-          className="text-2xl md:text-4xl lg:text-5xl font-bold text-zinc-100 mb-6 leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          Production Vidéo, Drone & Stratégie Digitale dans les Vosges
+          La créativité ne dort jamais.
         </motion.h1>
 
-        {/* 3. LE SOUS-TITRE - La Réassurance */}
+        {/* 2. LE TITRE SEO */}
+        <motion.h2
+          className="text-xl md:text-2xl text-zinc-300 font-medium mt-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          Production Vidéo, Drone & Stratégie dans les Vosges
+        </motion.h2>
+
+        {/* 3. LE SOUS-TITRE - Discret et Élégant */}
         <motion.p
-          className="text-lg md:text-xl lg:text-2xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-sm md:text-base text-zinc-400 max-w-2xl mx-auto mt-4 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <span className="text-zinc-300 font-semibold">Basés à Golbey.</span> Nous transformons votre vision en impact visuel pour l'industrie, le BTP et les marques du Grand-Est.
+          <span className="text-zinc-300">Basés à Golbey.</span> Nous transformons votre vision en impact visuel pour l'industrie, le BTP et les marques du Grand-Est.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* 4. CTA Buttons - Harmonisés */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10"
         >
           <BookingButton variant="default" />
-          <button className="px-8 py-4 text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all duration-300 font-semibold backdrop-blur-sm">
+          
+          <a
+            href="#portfolio"
+            className="px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 text-sm font-medium"
+          >
             Voir nos réalisations
-          </button>
+          </a>
         </motion.div>
 
         {/* Logo Texte */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
+          transition={{ duration: 0.8, delay: 1 }}
           className="mt-16"
         >
           <Image
@@ -115,7 +114,7 @@ export function HeroSection() {
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={192}
             height={66}
-            className="w-32 md:w-48 h-auto mx-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+            className="w-32 md:w-48 h-auto mx-auto opacity-60 hover:opacity-90 transition-opacity duration-300"
           />
         </motion.div>
       </div>
@@ -125,7 +124,7 @@ export function HeroSection() {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.3 }}
+        transition={{ duration: 1, delay: 1.2 }}
       >
         <div className="w-6 h-10 border-2 border-zinc-500 rounded-full flex justify-center">
           <motion.div
