@@ -62,7 +62,7 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-4"
         >
-          La créativité ne dort jamais.
+          La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
@@ -72,7 +72,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Production Vidéo, Drone & Stratégie dans les Vosges
+          Production Vidéo, Drone & Stratégie.
         </motion.h2>
 
         {/* 3. LE SOUS-TITRE - Discret et Élégant */}
@@ -82,21 +82,21 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <span className="text-zinc-300">Basés à Golbey.</span> Nous transformons votre vision en impact visuel pour l'industrie, le BTP et les marques du Grand-Est.
+          <span className="text-zinc-300">Basés dans les Vosges.</span> Nous accompagnons les entreprises et institutions audacieuses.
         </motion.p>
 
-        {/* 4. CTA Buttons - Harmonisés */}
+        {/* 4. CTA Buttons - Harmonisés et Responsive */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:mt-10"
         >
-          <BookingButton variant="default" />
+          <BookingButton variant="default" className="text-sm md:text-base py-3 px-6 md:py-4 md:px-8" />
           
           <a
             href="#portfolio"
-            className="px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 text-sm font-medium"
+            className="text-sm md:text-base py-3 px-6 md:py-4 md:px-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
           >
             Voir nos réalisations
           </a>
