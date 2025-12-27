@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       'Production vidéo globale : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie et Inspection. Basés à Golbey.',
     images: [
       {
-        url: 'https://www.nuitblancheproduction.com/nuit-blanche-production-video-drone-vosges-social-card.jpg?v=2',
+        url: '/nuit-blanche-production-video-drone-vosges-social-card.jpg',
         width: 1200,
         height: 630,
         alt: 'Nuit Blanche Production - Agence Vidéo & Drone - Vosges',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: 'Nuit Blanche Production | Agence Vidéo & Drone',
     description:
       'Production vidéo globale : Corporate, Pub, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie & Inspection.',
-    images: ['https://www.nuitblancheproduction.com/nuit-blanche-production-video-drone-vosges-social-card.jpg?v=2'],
+    images: ['/nuit-blanche-production-video-drone-vosges-social-card.jpg'],
   },
   robots: {
     index: true,
@@ -88,10 +88,25 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org JSON-LD pour le SEO
+// Schema.org JSON-LD optimisé pour le SEO Google
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
+    // WebSite en premier pour que Google l'identifie clairement
+    {
+      '@type': 'WebSite',
+      '@id': `${baseUrl}/#website`,
+      url: baseUrl,
+      name: 'Nuit Blanche Production',
+      alternateName: 'NBP',
+      description:
+        'Site officiel de Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
+      publisher: {
+        '@id': `${baseUrl}/#organization`,
+      },
+      inLanguage: 'fr-FR',
+    },
+    // Organization
     {
       '@type': 'Organization',
       '@id': `${baseUrl}/#organization`,
@@ -101,8 +116,15 @@ const jsonLd = {
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logos/logo-nuit-blanche-production.webp`,
+        width: 512,
+        height: 512,
       },
-      image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.jpg`,
+      image: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/nuit-blanche-production-agence-video-drone-vosges.jpg`,
+        width: 1200,
+        height: 630,
+      },
       description:
         'Agence de production vidéo professionnelle spécialisée en vidéo corporate, publicité, événementiel et services drone techniques : photogrammétrie, cartographie et inspection.',
       address: {
@@ -130,18 +152,7 @@ const jsonLd = {
         'https://www.linkedin.com/company/50366441/',
       ],
     },
-    {
-      '@type': 'WebSite',
-      '@id': `${baseUrl}/#website`,
-      url: baseUrl,
-      name: 'Nuit Blanche Production',
-      description:
-        'Site officiel de Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
-      publisher: {
-        '@id': `${baseUrl}/#organization`,
-      },
-      inLanguage: 'fr-FR',
-    },
+    // LocalBusiness
     {
       '@type': 'LocalBusiness',
       '@id': `${baseUrl}/#localbusiness`,
@@ -164,7 +175,12 @@ const jsonLd = {
         latitude: 48.20110400744197,
         longitude: 6.435260076219138,
       },
-      image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.jpg`,
+      image: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/nuit-blanche-production-agence-video-drone-vosges.jpg`,
+        width: 1200,
+        height: 630,
+      },
       areaServed: [
         {
           '@type': 'State',
@@ -248,13 +264,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <head>
+      <body className={inter.className}>
+        {/* JSON-LD dans le body pour éviter les conflits avec Next.js App Router */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          key="jsonld"
         />
-      </head>
-      <body className={inter.className}>
         <GoogleAnalytics GA_MEASUREMENT_ID="G-Q9ECMN6Q9J" />
         <Navbar />
         {children}
