@@ -7,7 +7,6 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// URL de base sécurisée pour le SEO - toujours pointer vers le domaine de production
 const baseUrl = 'https://www.nuitblancheproduction.com';
 
 export const metadata: Metadata = {
@@ -37,11 +36,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  // ✅ CORRECTION 1 : Favicon .ico en premier
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
@@ -88,11 +88,11 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org JSON-LD optimisé pour le SEO Google
+// ✅ CORRECTION 2 : Ajout d'une WebPage dans le JSON-LD
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    // WebSite en premier pour que Google l'identifie clairement
+    // WebSite
     {
       '@type': 'WebSite',
       '@id': `${baseUrl}/#website`,
@@ -100,8 +100,24 @@ const jsonLd = {
       name: 'Nuit Blanche Production',
       alternateName: 'NBP',
       description:
-        'Site officiel de Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
+        'Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
       publisher: {
+        '@id': `${baseUrl}/#organization`,
+      },
+      inLanguage: 'fr-FR',
+    },
+    // ✅ NOUVEAU : WebPage pour la page d'accueil
+    {
+      '@type': 'WebPage',
+      '@id': `${baseUrl}/#webpage`,
+      url: baseUrl,
+      name: 'Nuit Blanche Production : Agence Vidéo & Drone (Vosges)',
+      description:
+        'Votre partenaire vidéo dans les Vosges. Films corporate, publicité et expertise drone technique (photogrammétrie, inspection).',
+      isPartOf: {
+        '@id': `${baseUrl}/#website`,
+      },
+      about: {
         '@id': `${baseUrl}/#organization`,
       },
       inLanguage: 'fr-FR',
@@ -265,7 +281,6 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body className={inter.className}>
-        {/* JSON-LD dans le body pour éviter les conflits avec Next.js App Router */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
