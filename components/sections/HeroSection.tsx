@@ -25,7 +25,7 @@ export function HeroSection() {
   `;
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 pb-24 md:pt-0 md:pb-0">
+    <section className="relative min-h-[100dvh] flex flex-col justify-center items-center overflow-hidden bg-zinc-950 pt-28 pb-20 landscape:pt-28 landscape:pb-12 landscape:justify-start md:landscape:justify-center md:pt-0 md:pb-0">
       {/* Vidéo background */}
       {!videoError && (
         <div
@@ -55,23 +55,27 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
       {/* Container Layout */}
-      <div className="relative z-10 text-center px-4 max-w-[95rem] mx-auto w-full flex flex-col justify-center h-full">
+      <div className="relative z-10 text-center px-4 max-w-[95rem] mx-auto w-full flex flex-col h-full md:justify-center">
         
         {/* 1. LA PUNCHLINE */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          // AJUSTEMENT : Marges réduites (mb-6 / mb-8) mais tailles conservées
-          className="text-4xl max-[374px]:text-3xl landscape:text-2xl md:text-7xl md:landscape:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-6 landscape:mb-2 md:mb-6 md:landscape:mb-6 lg:mb-8"
+          // TAILLES RÉDUITES DE 10% PARTOUT
+          // Mobile Portrait : text-3xl
+          // Mobile Paysage : text-2xl
+          // Tablette : text-5xl
+          // Desktop : text-7xl / 8xl (au lieu de 9xl)
+          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-5xl md:landscape:text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.1] mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-6"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          // AJUSTEMENT : Marges intermédiaires (mt-6 / mt-8)
-          className="text-xl max-[374px]:text-lg landscape:text-base md:text-3xl md:landscape:text-3xl lg:text-4xl text-zinc-300 font-medium mt-4 landscape:mt-2 md:mt-6 md:landscape:mt-6 lg:mt-8"
+          // Reduction taille et marges
+          className="text-lg max-[374px]:text-base landscape:text-sm md:text-2xl md:landscape:text-2xl lg:text-3xl text-zinc-300 font-medium mt-3 landscape:mt-1 md:mt-5 md:landscape:mt-5 lg:mt-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -81,8 +85,7 @@ export function HeroSection() {
 
         {/* 3. LE SOUS-TITRE */}
         <motion.p
-          // AJUSTEMENT : Marges intermédiaires
-          className="text-base max-[374px]:text-sm landscape:text-xs md:text-xl md:landscape:text-xl lg:text-2xl text-zinc-400 max-w-4xl mx-auto mt-4 landscape:mt-3 md:mt-6 md:landscape:mt-6 lg:mt-8 leading-relaxed"
+          className="text-sm max-[374px]:text-xs landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl text-zinc-400 max-w-4xl mx-auto mt-3 landscape:mt-2 md:mt-5 md:landscape:mt-5 lg:mt-6 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -95,17 +98,17 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          // AJUSTEMENT : mt-10/12 (au lieu de 16/20) - Rapproche les boutons du texte
-          className="flex flex-col sm:flex-row gap-4 landscape:gap-3 md:gap-6 md:landscape:gap-6 lg:gap-8 justify-center items-center mt-8 landscape:mt-4 md:mt-10 md:landscape:mt-10 lg:mt-12 xl:mt-14"
+          // Marges réduites
+          className="flex flex-col sm:flex-row gap-3 landscape:gap-2 md:gap-5 md:landscape:gap-5 lg:gap-6 justify-center items-center mt-6 landscape:mt-3 md:mt-8 md:landscape:mt-8 lg:mt-10 xl:mt-12"
         >
           <BookingButton 
             variant="default" 
-            className="w-full sm:w-auto text-base landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl py-4 px-8 landscape:py-2 landscape:px-4 md:py-5 md:px-10 md:landscape:py-5 md:landscape:px-10" 
+            className="w-full sm:w-auto text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8" 
           />
           
           <a
             href="#portfolio"
-            className="w-full sm:w-auto text-center text-base landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl py-4 px-8 landscape:py-2 landscape:px-4 md:py-5 md:px-10 md:landscape:py-5 md:landscape:px-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
+            className="w-full sm:w-auto text-center text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
           >
             Voir nos réalisations
           </a>
@@ -116,29 +119,30 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          // AJUSTEMENT : mt-20/24 (au lieu de 32/40) - Remonte significativement le logo
-          className="mt-16 landscape:mt-8 md:mt-20 md:landscape:mt-20 lg:mt-24 xl:mt-32"
+          // Marges réduites
+          className="mt-12 landscape:mt-6 md:mt-16 md:landscape:mt-16 lg:mt-20 xl:mt-24"
         >
           <Image
             src="/logos/nuit-blanche-production-texte.webp"
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={300}
             height={100}
-            className="w-40 landscape:w-28 md:w-60 md:landscape:w-60 lg:w-80 xl:w-96 h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
+            // Taille réduite
+            className="w-32 landscape:w-20 md:w-48 md:landscape:w-48 lg:w-64 xl:w-80 h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
           />
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Caché en paysage mobile si trop petit */}
       <motion.div
-        className="absolute bottom-6 landscape:bottom-3 md:bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-6 landscape:hidden md:landscape:flex md:bottom-8 lg:bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        <div className="w-5 h-8 landscape:w-4 landscape:h-6 md:w-6 md:h-10 border-2 border-zinc-500 rounded-full flex justify-center">
+        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-zinc-500 rounded-full flex justify-center">
           <motion.div
-            className="w-1 h-1 landscape:w-0.5 landscape:h-0.5 md:w-1.5 md:h-1.5 bg-white rounded-full mt-2 landscape:mt-1.5"
+            className="w-1 h-1 md:w-1.5 md:h-1.5 bg-white rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
