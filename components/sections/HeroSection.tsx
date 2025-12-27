@@ -60,14 +60,14 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-3 landscape:mb-2 md:mb-4"
+          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight mb-3 landscape:mb-2 md:mb-4"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          className="text-lg max-[374px]:text-base landscape:text-base md:text-2xl text-zinc-300 font-medium mt-3 landscape:mt-2 md:mt-4"
+          className="text-lg max-[374px]:text-base landscape:text-base md:text-xl lg:text-2xl text-zinc-300 font-medium mt-3 landscape:mt-2 md:mt-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -77,7 +77,7 @@ export function HeroSection() {
 
         {/* 3. LE SOUS-TITRE - Discret et Élégant */}
         <motion.p
-          className="text-xs max-[374px]:text-[11px] landscape:text-[11px] md:text-base text-zinc-400 max-w-2xl mx-auto mt-3 landscape:mt-2 md:mt-4 leading-relaxed"
+          className="text-xs max-[374px]:text-[11px] landscape:text-[11px] md:text-sm lg:text-base text-zinc-400 max-w-2xl mx-auto mt-3 landscape:mt-2 md:mt-4 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -90,16 +90,16 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-3 landscape:gap-2 md:gap-4 justify-center items-center mt-6 landscape:mt-4 md:mt-10"
+          className="flex flex-col sm:flex-row gap-3 landscape:gap-2 md:gap-4 justify-center items-center mt-6 landscape:mt-4 md:mt-8 lg:mt-10"
         >
           <BookingButton 
             variant="default" 
-            className="text-sm landscape:text-xs md:text-base py-2.5 px-5 landscape:py-2 landscape:px-4 md:py-4 md:px-8" 
+            className="text-sm landscape:text-xs md:text-sm lg:text-base py-2.5 px-5 landscape:py-2 landscape:px-4 md:py-3 md:px-6 lg:py-4 lg:px-8" 
           />
           
           <a
             href="#portfolio"
-            className="text-sm landscape:text-xs md:text-base py-2.5 px-5 landscape:py-2 landscape:px-4 md:py-4 md:px-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
+            className="text-sm landscape:text-xs md:text-sm lg:text-base py-2.5 px-5 landscape:py-2 landscape:px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
           >
             Voir nos réalisations
           </a>
@@ -110,21 +110,21 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-12 landscape:mt-6 md:mt-16"
+          className="mt-12 landscape:mt-6 md:mt-14 lg:mt-16"
         >
           <Image
             src="/logos/nuit-blanche-production-texte.webp"
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={192}
             height={66}
-            className="w-28 landscape:w-24 md:w-48 h-auto mx-auto opacity-60 hover:opacity-90 transition-opacity duration-300"
+            className="w-28 landscape:w-24 md:w-32 lg:w-48 h-auto mx-auto opacity-60 hover:opacity-90 transition-opacity duration-300"
           />
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-6 landscape:bottom-4 md:bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-6 landscape:bottom-4 md:bottom-8 lg:bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
