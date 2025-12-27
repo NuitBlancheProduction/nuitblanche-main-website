@@ -34,7 +34,7 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
 
         {/* Content */}
         <div className="relative flex items-center gap-3 z-10">
-          {/* Avatar Container */}
+          {/* Avatar Container - FIXED */}
           <div className="relative w-8 h-8">
             <div className="absolute inset-0 w-8 h-8 rounded-full overflow-hidden ring-2 ring-red-500/50 group-hover:ring-red-400 transition-all duration-300">
               <Image
@@ -45,7 +45,7 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
                 className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
               />
             </div>
-            {/* Green pulse dot */}
+            {/* Green pulse dot - Outside overflow container */}
             <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-black z-20">
               <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75" />
             </div>
@@ -55,16 +55,13 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
     );
   }
 
-  // Version par défaut (Large)
   return (
     <button
       data-cal-namespace="rdv"
       data-cal-link="nuitblancheproduction/rdv"
       data-cal-config='{"layout":"month_view"}'
       className={cn(
-        // Base styles
         'group relative flex items-center justify-center gap-5 px-10 py-5 bg-black border-2 border-red-500/60 hover:border-red-400 rounded-3xl transition-all duration-500 shadow-xl shadow-red-500/20 hover:shadow-2xl hover:shadow-red-500/40',
-        // External override allowed here
         className
       )}
     >
@@ -73,7 +70,7 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
 
       {/* Content */}
       <div className="relative flex items-center gap-5 z-10">
-        {/* Avatar Container */}
+        {/* Avatar Container - FIXED */}
         <div className="relative w-14 h-14">
           <div className="absolute inset-0 w-14 h-14 rounded-full overflow-hidden ring-2 ring-red-500/60 group-hover:ring-red-400 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-red-500/50">
             <Image
@@ -84,14 +81,14 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
               className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
             />
           </div>
-          {/* Green pulse dot */}
+          {/* Green pulse dot - Outside overflow container */}
           <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-black z-20 shadow-lg shadow-green-500/50">
             <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75" />
           </div>
         </div>
 
         {/* Text */}
-        <div className="flex flex-col items-start text-left">
+        <div className="flex flex-col items-start">
           <span className="text-white font-bold text-lg tracking-tight group-hover:text-red-50 transition-colors duration-500">
             Planifiez un appel avec Denis
           </span>
@@ -100,3 +97,16 @@ export function BookingButton({ variant = 'default', className }: BookingButtonP
     </button>
   );
 }
+
+/* Add these custom animations to your tailwind.config.ts if not already present:
+
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
+    },
+  },
+}
+*/

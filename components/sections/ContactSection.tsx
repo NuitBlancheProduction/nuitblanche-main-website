@@ -55,12 +55,9 @@ export function ContactSection() {
           variants={fadeInUp}
           className="flex flex-col items-center"
         >
-          {/* Booking Button - VERSION "BLOCKBUSTER" */}
-          <div className="mb-12 w-full flex justify-center">
-            <BookingButton 
-              variant="default" 
-              className="h-20 px-12 text-2xl font-bold tracking-wide shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_-10px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 w-full sm:w-auto rounded-full"
-            />
+          {/* Booking Button */}
+          <div className="mb-8">
+            <BookingButton variant="default" />
           </div>
 
           {/* Contact Cards Grid */}
