@@ -55,28 +55,26 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
       {/* Container Layout */}
-      {/* AJUSTEMENT 2XL : max-w élargi à 110rem pour laisser la place aux textes énormes */}
       <div className="relative z-10 text-center px-4 max-w-[95rem] 2xl:max-w-[110rem] mx-auto w-full flex flex-col h-full md:justify-center">
         
-        {/* 1. LA PUNCHLINE */}
+        {/* 1. LA PUNCHLINE (MODIFIÉE) */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          // CORRECTION : Remplacement de min-[1600px] par 2xl
-          // TAILLES :
-          // Mobile: 3xl
-          // Tablette: 5xl
-          // Laptop: 7xl
-          // 2XL (Ton écran 1600+): 9xl (C'est MASSIF)
-          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-5xl md:landscape:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-6 2xl:mb-12"
+          // --- ANALYSE DES TAILLES ---
+          // Mobile (<768px): text-3xl (INTOUCHÉ)
+          // Tablette (md): text-5xl (INTOUCHÉ)
+          // Laptop (lg): text-8xl (BOOSTÉ - était 7xl)
+          // Desktop (xl): text-9xl (BOOSTÉ - était 8xl)
+          // 4K/Large (2xl): text-[10rem] (EXPLOSÉ - taille custom massive)
+          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-5xl md:landscape:text-5xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bold tracking-tight text-white leading-[1.1] 2xl:leading-none mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-8 2xl:mb-14"
         >
           La créativité ne dort jamais
         </motion.h1>
 
-        {/* 2. LE TITRE SEO */}
+        {/* 2. LE TITRE SEO (INTOUCHÉ sur les breakpoints standards, ajusté pour 2xl seulement) */}
         <motion.h2
-          // 2XL : text-5xl (Très grand pour un sous-titre) + Marge augmentée
           className="text-lg max-[374px]:text-base landscape:text-sm md:text-2xl md:landscape:text-2xl lg:text-3xl 2xl:text-5xl text-zinc-300 font-medium mt-3 landscape:mt-1 md:mt-5 md:landscape:mt-5 lg:mt-6 2xl:mt-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,9 +83,8 @@ export function HeroSection() {
           Production Vidéo, Drone & Stratégie.
         </motion.h2>
 
-        {/* 3. LE SOUS-TITRE */}
+        {/* 3. LE SOUS-TITRE (INTOUCHÉ) */}
         <motion.p
-          // 2XL : text-3xl et max-width large
           className="text-sm max-[374px]:text-xs landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl 2xl:text-3xl text-zinc-400 max-w-4xl 2xl:max-w-7xl mx-auto mt-3 landscape:mt-2 md:mt-5 md:landscape:mt-5 lg:mt-6 2xl:mt-12 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -96,17 +93,15 @@ export function HeroSection() {
           <span className="text-zinc-300">Basés dans les Vosges.</span> Nous accompagnons les entreprises et institutions audacieuses.
         </motion.p>
 
-        {/* 4. CTA Buttons */}
+        {/* 4. CTA Buttons (INTOUCHÉ) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          // 2XL : Espace gap-10 et grosse marge haute mt-24
           className="flex flex-col sm:flex-row gap-3 landscape:gap-2 md:gap-5 md:landscape:gap-5 lg:gap-6 2xl:gap-10 justify-center items-center mt-6 landscape:mt-3 md:mt-8 md:landscape:mt-8 lg:mt-10 xl:mt-12 2xl:mt-24"
         >
           <BookingButton 
             variant="default" 
-            // 2XL : Boutons géants (text-2xl, py-8, px-14)
             className="w-full sm:w-auto text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg 2xl:text-2xl py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8 2xl:py-8 2xl:px-14" 
           />
           
@@ -118,12 +113,11 @@ export function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Logo Texte */}
+        {/* Logo Texte (INTOUCHÉ) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          // 2XL : On pousse le logo très bas (mt-40)
           className="mt-12 landscape:mt-8 md:mt-16 md:landscape:mt-16 lg:mt-20 xl:mt-24 2xl:mt-40"
         >
           <Image
@@ -131,13 +125,12 @@ export function HeroSection() {
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={500}
             height={166}
-            // 2XL : Logo très large (w-[32rem])
             className="w-32 landscape:w-20 md:w-48 md:landscape:w-48 lg:w-64 xl:w-80 2xl:w-[32rem] h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
           />
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - Caché sur mobile paysage, visible ailleurs */}
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-6 landscape:hidden md:landscape:flex md:bottom-8 lg:bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
