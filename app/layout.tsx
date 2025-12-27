@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   applicationName: 'Nuit Blanche Production',
   title: {
     template: '%s | Nuit Blanche Production',
-    default: 'Nuit Blanche Production | Agence Vidéo & Drone Technique - Vosges',
+    default: 'Nuit Blanche Production | Agence Vidéo & Drone - Vosges',
   },
   description:
-    'Agence de production vidéo globale à Golbey : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie, Inspection. Filiale BTP Chantier Film.',
+    'Agence de production vidéo à Golbey : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie, Inspection. BTP via Chantier Film.',
   keywords: [
     'production vidéo vosges',
     'agence audiovisuelle epinal',
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicons/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' },
     ],
     apple: [
-      { url: '/favicons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
   },
-  manifest: '/favicons/site.webmanifest',
+  manifest: '/site.webmanifest',
   appleWebApp: {
     title: 'Nuit Blanche Production',
   },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     siteName: 'Nuit Blanche Production',
-    title: 'Nuit Blanche Production | Agence Vidéo & Drone Technique - Vosges',
+    title: 'Nuit Blanche Production | Agence Vidéo & Drone - Vosges',
     description:
       'Production vidéo globale : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie et Inspection. Basés à Golbey.',
     images: [
@@ -64,13 +64,13 @@ export const metadata: Metadata = {
         url: 'https://www.nuitblancheproduction.com/nuit-blanche-production-video-drone-vosges-social-card.jpg?v=2',
         width: 1200,
         height: 630,
-        alt: 'Nuit Blanche Production - Agence Vidéo & Drone Technique Vosges',
+        alt: 'Nuit Blanche Production - Agence Vidéo & Drone - Vosges',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nuit Blanche Production | Agence Vidéo & Drone Technique',
+    title: 'Nuit Blanche Production | Agence Vidéo & Drone',
     description:
       'Production vidéo globale : Corporate, Pub, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie & Inspection.',
     images: ['https://www.nuitblancheproduction.com/nuit-blanche-production-video-drone-vosges-social-card.jpg?v=2'],
@@ -100,7 +100,7 @@ const jsonLd = {
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/logo.png`,
+        url: `${baseUrl}/logos/logo-nuit-blanche-production.webp`,
       },
       image: `${baseUrl}/nuit-blanche-production-video-drone-vosges-social-card.jpg`,
       description:
