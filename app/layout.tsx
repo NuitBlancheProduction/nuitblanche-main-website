@@ -100,7 +100,7 @@ const jsonLd = {
       name: 'Nuit Blanche Production',
       alternateName: 'NBP',
       description:
-        'Site officiel de Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
+        'Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
       publisher: {
         '@id': `${baseUrl}/#organization`,
       },
