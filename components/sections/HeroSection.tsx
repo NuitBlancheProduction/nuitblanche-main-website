@@ -62,19 +62,16 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          // MOBILE: text-4xl (Validé)
-          // TABLETTE (md): text-6xl avec mb-4 (Compact)
-          // ORDI (lg/xl): text-8xl/9xl avec GROSSE marge mb-12 (Aéré)
-          className="text-4xl max-[374px]:text-3xl landscape:text-2xl md:text-6xl md:mb-6 lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-6 landscape:mb-2 lg:mb-10 xl:mb-14"
+          // CORRECTION CRITIQUE : Ajout de md:landscape:text-7xl pour empêcher le landscape mobile (text-2xl) de s'appliquer sur PC
+          className="text-4xl max-[374px]:text-3xl landscape:text-2xl md:text-7xl md:landscape:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-6 landscape:mb-2 md:mb-8 md:landscape:mb-8 lg:mb-12"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          // TABLETTE: text-2xl compact
-          // ORDI: text-4xl avec marge haute significative
-          className="text-xl max-[374px]:text-lg landscape:text-base md:text-2xl md:mt-4 lg:text-4xl lg:mt-10 xl:mt-12 text-zinc-300 font-medium mt-6 landscape:mt-2"
+          // CORRECTION : md:landscape:text-3xl pour surcharger le landscape:text-base
+          className="text-xl max-[374px]:text-lg landscape:text-base md:text-3xl md:landscape:text-3xl lg:text-4xl text-zinc-300 font-medium mt-6 landscape:mt-2 md:mt-8 md:landscape:mt-8 lg:mt-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -84,9 +81,8 @@ export function HeroSection() {
 
         {/* 3. LE SOUS-TITRE */}
         <motion.p
-          // TABLETTE: text-base compact
-          // ORDI: text-2xl aéré
-          className="text-base max-[374px]:text-sm landscape:text-xs md:text-base md:max-w-2xl md:mt-4 lg:text-2xl lg:max-w-4xl lg:mt-10 xl:mt-12 text-zinc-400 max-w-4xl mx-auto mt-6 landscape:mt-3 leading-relaxed"
+          // CORRECTION : md:landscape:text-xl pour surcharger le landscape:text-xs
+          className="text-base max-[374px]:text-sm landscape:text-xs md:text-xl md:landscape:text-xl lg:text-2xl text-zinc-400 max-w-4xl mx-auto mt-6 landscape:mt-3 md:mt-8 md:landscape:mt-8 lg:mt-12 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -99,44 +95,38 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          // TABLETTE: mt-8 (Rapproché)
-          // ORDI: mt-16 ou 20 (Bien séparé)
-          className="flex flex-col sm:flex-row gap-4 landscape:gap-3 md:gap-5 lg:gap-8 justify-center items-center mt-10 landscape:mt-4 md:mt-8 lg:mt-16 xl:mt-20"
+          // CORRECTION : md:landscape:gap-6 et md:landscape:mt-12
+          className="flex flex-col sm:flex-row gap-4 landscape:gap-3 md:gap-6 md:landscape:gap-6 lg:gap-8 justify-center items-center mt-10 landscape:mt-4 md:mt-12 md:landscape:mt-12 lg:mt-16 xl:mt-20"
         >
           <BookingButton 
             variant="default" 
-            // TABLETTE: Taille Standard
-            // ORDI: Taille XL
-            className="w-full sm:w-auto text-base landscape:text-xs md:text-base md:py-3 md:px-8 lg:text-xl lg:py-6 lg:px-12 py-4 px-8 landscape:py-2 landscape:px-4" 
+            // CORRECTION : Surcharge des styles boutons pour Desktop Landscape
+            className="w-full sm:w-auto text-base landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl py-4 px-8 landscape:py-2 landscape:px-4 md:py-5 md:px-10 md:landscape:py-5 md:landscape:px-10" 
           />
           
           <a
             href="#portfolio"
-            className="w-full sm:w-auto text-center text-base landscape:text-xs md:text-base md:py-3 md:px-8 lg:text-xl lg:py-6 lg:px-12 py-4 px-8 landscape:py-2 landscape:px-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
+            className="w-full sm:w-auto text-center text-base landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl py-4 px-8 landscape:py-2 landscape:px-4 md:py-5 md:px-10 md:landscape:py-5 md:landscape:px-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
           >
             Voir nos réalisations
           </a>
         </motion.div>
 
-        {/* Logo Texte - LE FIX DU BAS */}
+        {/* Logo Texte */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          // CLÉ DU SUCCÈS ICI :
-          // Mobile: mt-20 (Validé)
-          // Tablette: mt-12 (Pour réduire l'espace "trop grand")
-          // ORDI (lg/xl) : mt-[15vh] (Force le logo à descendre visuellement très bas)
-          className="mt-20 landscape:mt-8 md:mt-12 lg:mt-[12vh] xl:mt-[15vh]"
+          // CORRECTION : md:landscape:mt-32 (Force le logo tout en bas sur PC)
+          className="mt-20 landscape:mt-8 md:mt-32 md:landscape:mt-32 lg:mt-40 xl:mt-[20vh]"
         >
           <Image
             src="/logos/nuit-blanche-production-texte.webp"
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={300}
             height={100}
-            // Tablette: w-48
-            // Ordi: w-72 / w-96 (Bien gros)
-            className="w-40 landscape:w-28 md:w-48 lg:w-72 xl:w-96 h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
+            // CORRECTION : md:landscape:w-72
+            className="w-40 landscape:w-28 md:w-60 md:landscape:w-60 lg:w-80 xl:w-96 h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
           />
         </motion.div>
       </div>
@@ -148,9 +138,9 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        <div className="w-5 h-8 landscape:w-4 landscape:h-6 md:w-5 md:h-8 lg:w-6 lg:h-10 border-2 border-zinc-500 rounded-full flex justify-center">
+        <div className="w-5 h-8 landscape:w-4 landscape:h-6 md:w-6 md:h-10 border-2 border-zinc-500 rounded-full flex justify-center">
           <motion.div
-            className="w-1 h-1 landscape:w-0.5 landscape:h-0.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 bg-white rounded-full mt-2 landscape:mt-1.5"
+            className="w-1 h-1 landscape:w-0.5 landscape:h-0.5 md:w-1.5 md:h-1.5 bg-white rounded-full mt-2 landscape:mt-1.5"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
