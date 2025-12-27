@@ -25,7 +25,7 @@ export function HeroSection() {
   `;
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-28 pb-20 landscape:pt-24 landscape:pb-16">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-28 pb-20 md:pt-0 md:pb-0">
       {/* Vidéo background */}
       {!videoError && (
         <div
@@ -60,14 +60,14 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-3xl landscape:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-3 landscape:mb-2 md:mb-4"
+          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-3 landscape:mb-2 md:mb-4"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          className="text-lg landscape:text-base md:text-2xl text-zinc-300 font-medium mt-3 landscape:mt-2 md:mt-4"
+          className="text-lg max-[374px]:text-base landscape:text-base md:text-2xl text-zinc-300 font-medium mt-3 landscape:mt-2 md:mt-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -77,7 +77,7 @@ export function HeroSection() {
 
         {/* 3. LE SOUS-TITRE - Discret et Élégant */}
         <motion.p
-          className="text-xs landscape:text-xs md:text-base text-zinc-400 max-w-2xl mx-auto mt-3 landscape:mt-2 md:mt-4 leading-relaxed"
+          className="text-xs max-[374px]:text-[11px] landscape:text-[11px] md:text-base text-zinc-400 max-w-2xl mx-auto mt-3 landscape:mt-2 md:mt-4 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
