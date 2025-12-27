@@ -62,16 +62,16 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          // CORRECTION CRITIQUE : Ajout de md:landscape:text-7xl pour empêcher le landscape mobile (text-2xl) de s'appliquer sur PC
-          className="text-4xl max-[374px]:text-3xl landscape:text-2xl md:text-7xl md:landscape:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-6 landscape:mb-2 md:mb-8 md:landscape:mb-8 lg:mb-12"
+          // AJUSTEMENT : Marges réduites (mb-6 / mb-8) mais tailles conservées
+          className="text-4xl max-[374px]:text-3xl landscape:text-2xl md:text-7xl md:landscape:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-6 landscape:mb-2 md:mb-6 md:landscape:mb-6 lg:mb-8"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          // CORRECTION : md:landscape:text-3xl pour surcharger le landscape:text-base
-          className="text-xl max-[374px]:text-lg landscape:text-base md:text-3xl md:landscape:text-3xl lg:text-4xl text-zinc-300 font-medium mt-6 landscape:mt-2 md:mt-8 md:landscape:mt-8 lg:mt-10"
+          // AJUSTEMENT : Marges intermédiaires (mt-6 / mt-8)
+          className="text-xl max-[374px]:text-lg landscape:text-base md:text-3xl md:landscape:text-3xl lg:text-4xl text-zinc-300 font-medium mt-4 landscape:mt-2 md:mt-6 md:landscape:mt-6 lg:mt-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -81,8 +81,8 @@ export function HeroSection() {
 
         {/* 3. LE SOUS-TITRE */}
         <motion.p
-          // CORRECTION : md:landscape:text-xl pour surcharger le landscape:text-xs
-          className="text-base max-[374px]:text-sm landscape:text-xs md:text-xl md:landscape:text-xl lg:text-2xl text-zinc-400 max-w-4xl mx-auto mt-6 landscape:mt-3 md:mt-8 md:landscape:mt-8 lg:mt-12 leading-relaxed"
+          // AJUSTEMENT : Marges intermédiaires
+          className="text-base max-[374px]:text-sm landscape:text-xs md:text-xl md:landscape:text-xl lg:text-2xl text-zinc-400 max-w-4xl mx-auto mt-4 landscape:mt-3 md:mt-6 md:landscape:mt-6 lg:mt-8 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -95,12 +95,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          // CORRECTION : md:landscape:gap-6 et md:landscape:mt-12
-          className="flex flex-col sm:flex-row gap-4 landscape:gap-3 md:gap-6 md:landscape:gap-6 lg:gap-8 justify-center items-center mt-10 landscape:mt-4 md:mt-12 md:landscape:mt-12 lg:mt-16 xl:mt-20"
+          // AJUSTEMENT : mt-10/12 (au lieu de 16/20) - Rapproche les boutons du texte
+          className="flex flex-col sm:flex-row gap-4 landscape:gap-3 md:gap-6 md:landscape:gap-6 lg:gap-8 justify-center items-center mt-8 landscape:mt-4 md:mt-10 md:landscape:mt-10 lg:mt-12 xl:mt-14"
         >
           <BookingButton 
             variant="default" 
-            // CORRECTION : Surcharge des styles boutons pour Desktop Landscape
             className="w-full sm:w-auto text-base landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl py-4 px-8 landscape:py-2 landscape:px-4 md:py-5 md:px-10 md:landscape:py-5 md:landscape:px-10" 
           />
           
@@ -117,15 +116,14 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          // CORRECTION : md:landscape:mt-32 (Force le logo tout en bas sur PC)
-          className="mt-20 landscape:mt-8 md:mt-32 md:landscape:mt-32 lg:mt-40 xl:mt-[20vh]"
+          // AJUSTEMENT : mt-20/24 (au lieu de 32/40) - Remonte significativement le logo
+          className="mt-16 landscape:mt-8 md:mt-20 md:landscape:mt-20 lg:mt-24 xl:mt-32"
         >
           <Image
             src="/logos/nuit-blanche-production-texte.webp"
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={300}
             height={100}
-            // CORRECTION : md:landscape:w-72
             className="w-40 landscape:w-28 md:w-60 md:landscape:w-60 lg:w-80 xl:w-96 h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
           />
         </motion.div>
