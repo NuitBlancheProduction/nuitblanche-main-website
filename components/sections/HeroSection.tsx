@@ -25,7 +25,7 @@ export function HeroSection() {
   `;
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-950 landscape:overflow-y-auto">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
       {/* Vidéo background */}
       {!videoError && (
         <div
@@ -54,24 +54,20 @@ export function HeroSection() {
       {/* Dégradé bas */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto landscape:pt-16 landscape:pb-4 max-h-[500px]:pt-14 max-h-[500px]:pb-2">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         {/* 1. LA PUNCHLINE - L'Impact Émotionnel */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-4 
-                     landscape:text-3xl landscape:mb-2 landscape:leading-tight
-                     max-h-[500px]:text-2xl max-h-[500px]:mb-1"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-4"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          className="text-xl md:text-2xl text-zinc-300 font-medium mt-4
-                     landscape:text-base landscape:mt-2 landscape:leading-snug
-                     max-h-[500px]:text-sm max-h-[500px]:mt-1"
+          className="text-xl md:text-2xl text-zinc-300 font-medium mt-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -81,9 +77,7 @@ export function HeroSection() {
 
         {/* 3. LE SOUS-TITRE - Discret et Élégant */}
         <motion.p
-          className="text-sm md:text-base text-zinc-400 max-w-2xl mx-auto mt-4 leading-relaxed
-                     landscape:text-xs landscape:mt-2 landscape:leading-snug landscape:max-w-xl
-                     max-h-[500px]:text-xs max-h-[500px]:mt-1 max-h-[500px]:hidden"
+          className="text-sm md:text-base text-zinc-400 max-w-2xl mx-auto mt-4 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -96,48 +90,38 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:mt-10
-                     landscape:flex-row landscape:gap-3 landscape:mt-4
-                     max-h-[500px]:gap-2 max-h-[500px]:mt-3"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:mt-10"
         >
-          <BookingButton 
-            variant="default" 
-            className="text-sm md:text-base py-3 px-6 md:py-4 md:px-8
-                       landscape:text-xs landscape:py-2 landscape:px-5
-                       max-h-[500px]:text-xs max-h-[500px]:py-1.5 max-h-[500px]:px-4" 
-          />
+          <BookingButton variant="default" className="text-sm md:text-base py-3 px-6 md:py-4 md:px-8" />
           
           <a
             href="#portfolio"
-            className="text-sm md:text-base py-3 px-6 md:py-4 md:px-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium
-                       landscape:text-xs landscape:py-2 landscape:px-5
-                       max-h-[500px]:text-xs max-h-[500px]:py-1.5 max-h-[500px]:px-4"
+            className="text-sm md:text-base py-3 px-6 md:py-4 md:px-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
           >
             Voir nos réalisations
           </a>
         </motion.div>
 
-        {/* Logo Texte - Caché en mode paysage très compact */}
+        {/* Logo Texte */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 landscape:mt-6 max-h-[500px]:hidden"
+          className="mt-16"
         >
           <Image
             src="/logos/nuit-blanche-production-texte.webp"
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={192}
             height={66}
-            className="w-32 md:w-48 h-auto mx-auto opacity-60 hover:opacity-90 transition-opacity duration-300
-                       landscape:w-24"
+            className="w-32 md:w-48 h-auto mx-auto opacity-60 hover:opacity-90 transition-opacity duration-300"
           />
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - Caché en mode paysage */}
+      {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 landscape:hidden"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}

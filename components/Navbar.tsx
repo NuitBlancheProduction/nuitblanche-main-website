@@ -37,29 +37,29 @@ export default function Navbar() {
           isScrolled
             ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800'
             : 'bg-transparent'
-        } h-24 landscape:h-16 max-h-[500px]:h-14`}
+        } h-24`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center justify-between h-full">
-            {/* Logo - Icône permanente avec optimisation paysage */}
+            {/* Logo - Icône permanente */}
             <Link href="/" className="relative group flex items-center">
               <Image
                 src="/logos/logo-nuit-blanche-production-icone.webp"
                 alt="Nuit Blanche Production"
                 width={80}
                 height={80}
-                className="h-16 md:h-20 landscape:h-12 max-h-[500px]:h-10 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                className="h-16 md:h-20 w-auto object-contain group-hover:opacity-90 transition-opacity"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8 landscape:space-x-4">
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-zinc-300 hover:text-white transition-colors font-medium landscape:text-sm"
+                  className="text-zinc-300 hover:text-white transition-colors font-medium"
                 >
                   {link.label}
                 </Link>
@@ -70,14 +70,10 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors landscape:p-1"
+              className="md:hidden text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
               aria-label="Menu"
             >
-              {isMobileMenuOpen ? (
-                <X size={24} className="landscape:w-5 landscape:h-5" />
-              ) : (
-                <Menu size={24} className="landscape:w-5 landscape:h-5" />
-              )}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -96,29 +92,26 @@ export default function Navbar() {
             {/* Bouton Fermer en haut à droite */}
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute top-6 right-6 landscape:top-3 landscape:right-3 text-white p-2 landscape:p-1 hover:bg-zinc-800 rounded-lg transition-colors"
+              className="absolute top-6 right-6 text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
               aria-label="Fermer le menu"
             >
-              <X size={28} className="landscape:w-6 landscape:h-6" />
+              <X size={28} />
             </button>
 
-            {/* Navigation centrée avec optimisation paysage */}
-            <div className="flex flex-col items-center space-y-8 landscape:space-y-4 max-h-[500px]:space-y-3">
+            {/* Navigation centrée */}
+            <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-zinc-300 hover:text-white transition-colors font-medium text-2xl landscape:text-lg max-h-[500px]:text-base"
+                  className="text-zinc-300 hover:text-white transition-colors font-medium text-2xl"
                 >
                   {link.label}
                 </Link>
               ))}
-              <div onClick={() => setIsMobileMenuOpen(false)} className="pt-4 landscape:pt-2">
-                <BookingButton 
-                  variant="default" 
-                  className="px-8 py-3 text-lg landscape:px-6 landscape:py-2 landscape:text-base" 
-                />
+              <div onClick={() => setIsMobileMenuOpen(false)} className="pt-4">
+                <BookingButton variant="default" className="px-8 py-3 text-lg" />
               </div>
             </div>
           </motion.div>
