@@ -54,26 +54,25 @@ export function HeroSection() {
       {/* Dégradé bas */}
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
 
-      {/* Container Layout - On élargit le max-width pour le Desktop */}
+      {/* Container Layout */}
       <div className="relative z-10 text-center px-4 max-w-[95rem] 2xl:max-w-[110rem] mx-auto w-full flex flex-col h-full md:justify-center">
         
-        {/* 1. LA PUNCHLINE (Taille validée -12%) */}
+        {/* 1. LA PUNCHLINE */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          // ESPACEMENT (Le Mix) :
-          // lg (Laptop) : mb-8
-          // xl (1280px+) : mb-10 (Plus d'espace)
-          // 2xl (1536px+) : mb-14 (Grand espace)
-          className="text-[1.75rem] max-[374px]:text-2xl landscape:text-2xl md:text-[2.75rem] md:landscape:text-[2.75rem] lg:text-[4rem] lg:landscape:text-[4rem] xl:text-[5.5rem] xl:landscape:text-[5.5rem] 2xl:text-[7rem] font-bold tracking-tight text-white leading-[1.1] mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-8 xl:mb-10 2xl:mb-14"
+          // CORRECTION FINALE LAPTOP :
+          // lg: text-[3.5rem] (Réduit pour 1024px+)
+          // xl: text-[4.5rem] (Réduit pour 1280px+)
+          // 2xl: text-[6.5rem] (Ajusté pour 1536px+)
+          className="text-[1.75rem] max-[374px]:text-2xl landscape:text-2xl md:text-[2.75rem] md:landscape:text-[2.75rem] lg:text-[3.5rem] lg:landscape:text-[3.5rem] xl:text-[4.5rem] xl:landscape:text-[4.5rem] 2xl:text-[6.5rem] font-bold tracking-tight text-white leading-[1.1] mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-8 xl:mb-10 2xl:mb-14"
         >
           La créativité ne dort jamais
         </motion.h1>
 
         {/* 2. LE TITRE SEO */}
         <motion.h2
-          // ESPACEMENT (Le Mix) : Augmentation progressive mt-6 -> mt-8 -> mt-12
           className="text-lg max-[374px]:text-base landscape:text-sm md:text-2xl md:landscape:text-2xl lg:text-3xl lg:landscape:text-3xl xl:text-4xl 2xl:text-5xl text-zinc-300 font-medium mt-3 landscape:mt-1 md:mt-5 md:landscape:mt-5 lg:mt-6 xl:mt-8 2xl:mt-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,10 +96,6 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          // LE MIX DES ESPACES : 
-          // lg: mt-10 (Standard)
-          // xl (1280px+): mt-16 (Aéré, mais pas explosé)
-          // 2xl: mt-24 (Massif)
           className="flex flex-col sm:flex-row gap-3 landscape:gap-2 md:gap-5 md:landscape:gap-5 lg:gap-6 xl:gap-8 2xl:gap-10 justify-center items-center mt-6 landscape:mt-3 md:mt-8 md:landscape:mt-8 lg:mt-10 xl:mt-16 2xl:mt-24"
         >
           <BookingButton 
@@ -116,15 +111,11 @@ export function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Logo Texte - LE FIX DU BUG EST ICI */}
+        {/* Logo Texte */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          // CORRECTION ESPACEMENT :
-          // lg: mt-20 (Standard)
-          // xl (1280px+): mt-32 (Le "Mix" : bien plus bas que LG, mais safe)
-          // 2xl: mt-48 (Massif)
           className="mt-12 landscape:mt-8 md:mt-16 md:landscape:mt-16 lg:mt-20 xl:mt-32 2xl:mt-48"
         >
           <Image
@@ -132,10 +123,6 @@ export function HeroSection() {
             alt="Nuit Blanche Production - Agence Vidéo Vosges"
             width={500}
             height={166}
-            // CORRECTION TAILLE :
-            // lg: w-64
-            // xl (1280px+): w-96 (Le "Mix" : ~384px, grand mais pas 32rem/512px)
-            // 2xl: w-[30rem] (Massif)
             className="w-32 landscape:w-20 md:w-48 md:landscape:w-48 lg:w-64 xl:w-96 2xl:w-[30rem] h-auto mx-auto opacity-50 hover:opacity-80 transition-opacity duration-300"
           />
         </motion.div>
