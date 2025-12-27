@@ -57,25 +57,26 @@ export function HeroSection() {
       {/* Container Layout */}
       <div className="relative z-10 text-center px-4 max-w-[95rem] 2xl:max-w-[110rem] mx-auto w-full flex flex-col h-full md:justify-center">
         
-        {/* 1. LA PUNCHLINE (MODIFIÉE) */}
+        {/* 1. LA PUNCHLINE */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          // --- ANALYSE DES TAILLES ---
-          // Mobile (<768px): text-3xl (INTOUCHÉ)
-          // Tablette (md): text-5xl (INTOUCHÉ)
-          // Laptop (lg): text-8xl (BOOSTÉ - était 7xl)
-          // Desktop (xl): text-9xl (BOOSTÉ - était 8xl)
-          // 4K/Large (2xl): text-[10rem] (EXPLOSÉ - taille custom massive)
-          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-5xl md:landscape:text-5xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bold tracking-tight text-white leading-[1.1] 2xl:leading-none mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-8 2xl:mb-14"
+          // --- LOGIQUE SIMPLIFIÉE & CORRIGÉE ---
+          // Mobile (<768) : text-3xl
+          // Tablette (md) : text-5xl (Validé)
+          // Laptop (lg - 1024px) : text-7xl (Réduit, c'était 8xl "trop gros") + landscape forcé
+          // Desktop (xl - 1280px) : text-8xl (Fix du bug 1295px) + landscape forcé
+          // Géant (2xl - 1536px) : text-9xl
+          className="text-3xl max-[374px]:text-2xl landscape:text-2xl md:text-5xl md:landscape:text-5xl lg:text-7xl lg:landscape:text-7xl xl:text-8xl xl:landscape:text-8xl 2xl:text-9xl font-bold tracking-tight text-white leading-[1.1] mb-4 landscape:mb-2 md:mb-5 md:landscape:mb-5 lg:mb-8 2xl:mb-12"
         >
           La créativité ne dort jamais
         </motion.h1>
 
-        {/* 2. LE TITRE SEO (INTOUCHÉ sur les breakpoints standards, ajusté pour 2xl seulement) */}
+        {/* 2. LE TITRE SEO */}
         <motion.h2
-          className="text-lg max-[374px]:text-base landscape:text-sm md:text-2xl md:landscape:text-2xl lg:text-3xl 2xl:text-5xl text-zinc-300 font-medium mt-3 landscape:mt-1 md:mt-5 md:landscape:mt-5 lg:mt-6 2xl:mt-12"
+          // Ajustement progressif
+          className="text-lg max-[374px]:text-base landscape:text-sm md:text-2xl md:landscape:text-2xl lg:text-3xl lg:landscape:text-3xl xl:text-4xl 2xl:text-5xl text-zinc-300 font-medium mt-3 landscape:mt-1 md:mt-5 md:landscape:mt-5 lg:mt-6 2xl:mt-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -83,9 +84,9 @@ export function HeroSection() {
           Production Vidéo, Drone & Stratégie.
         </motion.h2>
 
-        {/* 3. LE SOUS-TITRE (INTOUCHÉ) */}
+        {/* 3. LE SOUS-TITRE */}
         <motion.p
-          className="text-sm max-[374px]:text-xs landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl 2xl:text-3xl text-zinc-400 max-w-4xl 2xl:max-w-7xl mx-auto mt-3 landscape:mt-2 md:mt-5 md:landscape:mt-5 lg:mt-6 2xl:mt-12 leading-relaxed"
+          className="text-sm max-[374px]:text-xs landscape:text-xs md:text-lg md:landscape:text-lg lg:text-xl lg:landscape:text-xl xl:text-2xl 2xl:text-3xl text-zinc-400 max-w-4xl 2xl:max-w-7xl mx-auto mt-3 landscape:mt-2 md:mt-5 md:landscape:mt-5 lg:mt-6 2xl:mt-12 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -93,7 +94,7 @@ export function HeroSection() {
           <span className="text-zinc-300">Basés dans les Vosges.</span> Nous accompagnons les entreprises et institutions audacieuses.
         </motion.p>
 
-        {/* 4. CTA Buttons (INTOUCHÉ) */}
+        {/* 4. CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,18 +103,18 @@ export function HeroSection() {
         >
           <BookingButton 
             variant="default" 
-            className="w-full sm:w-auto text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg 2xl:text-2xl py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8 2xl:py-8 2xl:px-14" 
+            className="w-full sm:w-auto text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg lg:landscape:text-lg 2xl:text-2xl py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8 2xl:py-8 2xl:px-14" 
           />
           
           <a
             href="#portfolio"
-            className="w-full sm:w-auto text-center text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg 2xl:text-2xl py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8 2xl:py-8 2xl:px-14 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
+            className="w-full sm:w-auto text-center text-sm landscape:text-xs md:text-base md:landscape:text-base lg:text-lg lg:landscape:text-lg 2xl:text-2xl py-3 px-6 landscape:py-2 landscape:px-4 md:py-4 md:px-8 md:landscape:py-4 md:landscape:px-8 2xl:py-8 2xl:px-14 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 font-medium"
           >
             Voir nos réalisations
           </a>
         </motion.div>
 
-        {/* Logo Texte (INTOUCHÉ) */}
+        {/* Logo Texte */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
